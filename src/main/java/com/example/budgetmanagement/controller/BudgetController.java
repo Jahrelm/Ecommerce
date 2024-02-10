@@ -22,6 +22,10 @@ public class BudgetController {
         Budget updatedBudget = budgetService.updateBudget(budget);
         return updatedBudget;
     }
+    @DeleteMapping(path= "/{id}")
+    public  @ResponseBody String deleteBudget(@PathVariable Integer id){
+        return budgetService.deleteBudget(id);
+    }
 
     @GetMapping(path="/{id}")
     public  @ResponseBody Budget getBudget(@PathVariable Integer id){

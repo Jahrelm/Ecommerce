@@ -8,4 +8,6 @@ public interface IBudgetService {
     Budget getBudget(Integer id);
 
     Budget updateBudget(Budget budget);
+
+    String deleteBudget (Integer id);
 }

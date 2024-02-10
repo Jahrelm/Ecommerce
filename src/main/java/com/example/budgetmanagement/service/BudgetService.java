@@ -45,6 +45,11 @@ public class BudgetService implements IBudgetService {
             throw e;
         }
     }
+    @Override
+    public String deleteBudget(Integer id){
+        budgetRepository.deleteById(id);
+        return "Budget is deleted";
+    }
 
 }
 
