@@ -25,7 +25,7 @@ public class ApplicationUser implements UserDetails {
     @JoinTable(
             name="user_role_junction",
             joinColumns = {@JoinColumn(name="user_id")},
-            inverseJoinColumns = {@JoinColumn(name="user_id")}
+            inverseJoinColumns = {@JoinColumn(name="role_id")}
     )
     private Set<Role> authorities;
 
@@ -68,17 +68,20 @@ public class ApplicationUser implements UserDetails {
         return this.authorities;
     }
     public void setAuthorities(Set<Role> authorities) {
+
         this.authorities = authorities;
     }
 
 
     @Override
     public String getPassword() {
+
         return this.password;
     }
 
     @Override
     public String getUsername() {
+
         return this.username;
     }
 
