@@ -22,6 +22,12 @@ public class ApplicationUser implements UserDetails {
     @Column(unique = true)
     private String username;
     private String password;
+    private String fullName;
+    private String phoneNumber;
+    private String country;
+    private String address;
+    private String city;
+    private String postCode;
 
     @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(
@@ -37,11 +43,18 @@ public class ApplicationUser implements UserDetails {
 
     }
 
-    public ApplicationUser(Integer userId, String username, String password, Set<Role> authorities) {
+    public ApplicationUser(Integer userId, String username, String password, Set<Role> authorities, String fullName,
+                           String phoneNumber, String country, String address, String city, String postCode) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.authorities = authorities;
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.country = country;
+        this.address = address;
+        this.city = city;
+        this.postCode = postCode;
     }
 
     public Integer getUserId() {
@@ -109,5 +122,53 @@ public class ApplicationUser implements UserDetails {
     public boolean isEnabled() {
 
         return true;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
     }
 }

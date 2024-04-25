@@ -10,14 +10,16 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:3000")
 public class AuthenticationController {
     @Autowired
     private AuthenticationService authenticationService;
 
     @PostMapping("/register")
     public ApplicationUser registerUser(@RequestBody RegistrationDTO body){
-        return authenticationService.registerUser(body.getUsername(), body.getPassword());
+        return authenticationService.registerUser(
+                body.getUsername(), body.getPassword(), body.getFullName(), body.getPhoneNumber(),
+                body.getCountry(), body.getAddress(), body.getCity(), body.getPostCode());
 
     }
     @PostMapping("/login")
