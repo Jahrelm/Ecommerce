@@ -1,4 +1,4 @@
-package com.example.budgetmanagement.service;
+package com.example.ecommercemanagement.service;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;

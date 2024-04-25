@@ -8,7 +8,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>budget-management</artifactId>
+	<artifactId>ecommerce-management</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>budget-management</name>
 	<description>Demo project for Spring Boot</description>

@@ -1,9 +1,9 @@
-package com.example.budgetmanagement.controller;
+package com.example.ecommercemanagement.controller;
 
-import com.example.budgetmanagement.model.ApplicationUser;
-import com.example.budgetmanagement.model.LoginResponseDTO;
-import com.example.budgetmanagement.model.RegistrationDTO;
-import com.example.budgetmanagement.service.AuthenticationService;
+import com.example.ecommercemanagement.model.ApplicationUser;
+import com.example.ecommercemanagement.model.LoginResponseDTO;
+import com.example.ecommercemanagement.model.RegistrationDTO;
+import com.example.ecommercemanagement.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,7 @@
-package com.example.budgetmanagement.configuration;
+package com.example.ecommercemanagement.configuration;
 
 
-import com.example.budgetmanagement.utils.RSAKeyProperties;
+import com.example.ecommercemanagement.utils.RSAKeyProperties;
 import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;

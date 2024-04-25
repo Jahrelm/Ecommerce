@@ -1,4 +1,4 @@
-package com.example.budgetmanagement.utils;
+package com.example.ecommercemanagement.utils;
 
 import org.springframework.stereotype.Component;
 import java.security.KeyPair;

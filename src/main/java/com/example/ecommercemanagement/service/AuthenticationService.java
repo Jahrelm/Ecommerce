@@ -1,10 +1,10 @@
-package com.example.budgetmanagement.service;
+package com.example.ecommercemanagement.service;
 
-import com.example.budgetmanagement.model.ApplicationUser;
-import com.example.budgetmanagement.model.LoginResponseDTO;
-import com.example.budgetmanagement.model.Role;
-import com.example.budgetmanagement.repository.RoleRepository;
-import com.example.budgetmanagement.repository.UserRepository;
+import com.example.ecommercemanagement.model.ApplicationUser;
+import com.example.ecommercemanagement.model.LoginResponseDTO;
+import com.example.ecommercemanagement.model.Role;
+import com.example.ecommercemanagement.repository.RoleRepository;
+import com.example.ecommercemanagement.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;

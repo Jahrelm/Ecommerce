@@ -1,9 +1,9 @@
-package com.example.budgetmanagement;
+package com.example.ecommercemanagement;
 
-import com.example.budgetmanagement.model.ApplicationUser;
-import com.example.budgetmanagement.model.Role;
-import com.example.budgetmanagement.repository.RoleRepository;
-import com.example.budgetmanagement.repository.UserRepository;
+import com.example.ecommercemanagement.model.ApplicationUser;
+import com.example.ecommercemanagement.model.Role;
+import com.example.ecommercemanagement.repository.RoleRepository;
+import com.example.ecommercemanagement.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,11 +14,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @SpringBootApplication
-public class BudgetManagementApplication {
+public class EcommerceManagementApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(BudgetManagementApplication.class, args);
+		SpringApplication.run(EcommerceManagementApplication.class, args);
 	}
 	@Bean
 	CommandLineRunner run(RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder passwordEncode){

@@ -1,4 +1,4 @@
-package com.example.budgetmanagement.model;
+package com.example.ecommercemanagement.model;
 
 public class RegistrationDTO {
     private String username;

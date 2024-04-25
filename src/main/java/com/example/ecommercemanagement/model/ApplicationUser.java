@@ -1,4 +1,4 @@
-package com.example.budgetmanagement.model;
+package com.example.ecommercemanagement.model;
 
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;

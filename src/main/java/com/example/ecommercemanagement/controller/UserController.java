@@ -1,4 +1,4 @@
-package com.example.budgetmanagement.controller;
+package com.example.ecommercemanagement.controller;
 
 
 import org.springframework.web.bind.annotation.CrossOrigin;

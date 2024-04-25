@@ -1,8 +1,7 @@
-package com.example.budgetmanagement.utils;
+package com.example.ecommercemanagement.utils;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
 
 public class KeyGeneratorUtility {
     public static KeyPair generateRsaKey(){
