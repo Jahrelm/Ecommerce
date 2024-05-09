@@ -26,5 +26,9 @@ public class ProductService {
         return productRepository.saveAll(products);
 
     }
+    public Product findProductById(Long id){
+        return productRepository.findById(id)
+                .orElse(null);
+    }
 
 }
