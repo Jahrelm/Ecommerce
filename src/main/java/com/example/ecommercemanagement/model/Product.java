@@ -25,18 +25,7 @@ public class Product {
     private String productType;
 
 
-    public Product(Long id, String image, String brand, int review, String title, String offerPrice, String price, boolean campaignProduct, Integer campaignProductAvailable, Integer campaignProductSale, String productType) {
-        this.id = id;
-        this.image = image;
-        this.brand = brand;
-        this.review = review;
-        this.title = title;
-        this.offerPrice = offerPrice;
-        this.price = price;
-        this.campaignProduct = campaignProduct;
-        this.campaignProductAvailable = campaignProductAvailable;
-        this.campaignProductSale = campaignProductSale;
-        this.productType = productType;
+    public Product() {
     }
 
     public Long getId() {

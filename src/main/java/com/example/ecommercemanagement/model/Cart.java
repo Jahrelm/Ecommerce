@@ -2,15 +2,13 @@ package com.example.ecommercemanagement.model;
 
 import jakarta.persistence.*;
 
+
+@Entity
 public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
 
     private Long productId;
     private int quantity;
