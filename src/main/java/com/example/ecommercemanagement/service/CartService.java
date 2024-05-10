@@ -14,6 +14,11 @@ public class CartService {
         this.cartRepository = cartRepository;
         this.productRepository = productRepository;
     }
+
+    public Iterable<Cart> list(){
+        return cartRepository.findAll();
+    }
+
     public Cart addToCart(Long productId, int quantity){
         Product product = productRepository.findById(productId).orElse(null);
         if (product == null){
@@ -22,6 +27,7 @@ public class CartService {
         Cart cartItem = new Cart();
         cartItem.setProductId(productId);
         cartItem.setQuantity(quantity);
+        cartItem.setTitle(product.getTitle());
         double totalCost = calculateTotalCost(product.getPrice(), quantity);
         cartItem.setTotalCost(totalCost);
         return cartRepository.save(cartItem);

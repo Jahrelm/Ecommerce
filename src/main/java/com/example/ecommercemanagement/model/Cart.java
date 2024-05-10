@@ -10,9 +10,19 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String title;
+
     private Long productId;
     private int quantity;
     public double totalCost;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public Long getId() {
         return id;
@@ -45,6 +55,5 @@ public class Cart {
     public void setTotalCost(double totalCost) {
         this.totalCost = totalCost;
     }
-
 
 }
