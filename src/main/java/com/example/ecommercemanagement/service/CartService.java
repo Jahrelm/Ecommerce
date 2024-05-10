@@ -1,6 +1,7 @@
 package com.example.ecommercemanagement.service;
 
-import com.example.ecommercemanagement.model.*;
+import com.example.ecommercemanagement.model.Cart;
+import com.example.ecommercemanagement.model.Product;
 import com.example.ecommercemanagement.repository.CartRepository;
 import com.example.ecommercemanagement.repository.ProductRepository;
 import org.springframework.stereotype.Service;
@@ -32,22 +33,31 @@ public class CartService {
         cartItem.setPrice(product.getPrice());
         double totalCost = calculateTotalCost(product.getPrice(), quantity);
         cartItem.setTotalCost(totalCost);
+
+        cartItem = cartRepository.save(cartItem);
+
         double cartCost = calculateCartCost();
         cartItem.setCartCost(cartCost);
+
         return cartRepository.save(cartItem);
 
     }
     public void removeFromCart(Long cartItemId) {
         cartRepository.deleteById(cartItemId);
     }
+
+    public void removeAllFromCart(){
+        cartRepository.deleteAll();
+    }
+
     private double calculateTotalCost(String price, int quantity){
         double productPrice = Double.parseDouble(price.replace("$", ""));
         return productPrice * quantity;
     }
-    private double calculateCartCost(){
+    private double calculateCartCost() {
+        Iterable<Cart> cartItems = cartRepository.findAll();
         double cartCost = 0.0;
-        Iterable<Cart> cartItems = list();
-        for(Cart cartItem : cartItems){
+        for (Cart cartItem : cartItems) {
             cartCost += cartItem.getTotalCost();
         }
         return cartCost;

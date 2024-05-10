@@ -43,5 +43,17 @@ public class CartController {
         return ResponseEntity.noContent().build();
     }
 
+    @DeleteMapping("/remove")
+    @PreAuthorize("hasRole('USER')")
+    public  ResponseEntity<Cart> removeAllFromCart(){
+            try{
+                cartService.removeAllFromCart();;
+                return ResponseEntity.ok().build();
+            }catch(Exception e){
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+
+            }
+    }
+
 }
 
