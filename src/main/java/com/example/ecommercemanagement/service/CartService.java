@@ -28,8 +28,12 @@ public class CartService {
         cartItem.setProductId(productId);
         cartItem.setQuantity(quantity);
         cartItem.setTitle(product.getTitle());
+        cartItem.setBrand(product.getBrand());
+        cartItem.setPrice(product.getPrice());
         double totalCost = calculateTotalCost(product.getPrice(), quantity);
         cartItem.setTotalCost(totalCost);
+        double cartCost = calculateCartCost();
+        cartItem.setCartCost(cartCost);
         return cartRepository.save(cartItem);
 
     }
@@ -39,5 +43,13 @@ public class CartService {
     private double calculateTotalCost(String price, int quantity){
         double productPrice = Double.parseDouble(price.replace("$", ""));
         return productPrice * quantity;
+    }
+    private double calculateCartCost(){
+        double cartCost = 0.0;
+        Iterable<Cart> cartItems = list();
+        for(Cart cartItem : cartItems){
+            cartCost += cartItem.getTotalCost();
+        }
+        return cartCost;
     }
 }
