@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cart")
+@CrossOrigin("http://localhost:3000")
 public class CartController {
 
         private AuthenticationService authenticationService;

@@ -5,6 +5,7 @@ import com.example.ecommercemanagement.model.Product;
 import com.example.ecommercemanagement.repository.CartRepository;
 import com.example.ecommercemanagement.repository.ProductRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
 public class CartService {
@@ -20,7 +21,7 @@ public class CartService {
         return cartRepository.findAll();
     }
 
-    public Cart addToCart(Long productId, int quantity){
+    public Cart addToCart(@RequestParam Long productId, @RequestParam int quantity){
         Product product = productRepository.findById(productId).orElse(null);
         if (product == null){
             return null;

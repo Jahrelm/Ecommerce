@@ -31,4 +31,9 @@ public class ProductService {
                 .orElse(null);
     }
 
+    public List<Product> findByTitleContainingIgnoreCase(String title){
+        return productRepository.findByTitleContainingIgnoreCase(title);
+
+    }
+
 }

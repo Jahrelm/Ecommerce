@@ -5,6 +5,8 @@ import com.example.ecommercemanagement.service.ProductService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/products")
 @CrossOrigin("http://localhost:3000")
@@ -26,6 +28,13 @@ public class ProductController {
     @PreAuthorize("hasRole('USER')")
     public Product findProductById(@PathVariable Long id){
         return productService.findProductById(id);
+
+    }
+
+    @GetMapping("/list/search")
+    @PreAuthorize("hasRole('USER')")
+    public List<Product> findProductByTitle(@RequestParam String title){
+        return productService.findByTitleContainingIgnoreCase(title);
 
     }
 
