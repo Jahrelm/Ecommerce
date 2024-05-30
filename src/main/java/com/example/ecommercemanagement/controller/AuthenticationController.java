@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 
 @RestController
@@ -26,11 +27,12 @@ public class AuthenticationController {
     }
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody RegistrationDTO body){
-        LoginResponseDTO response = authenticationService.loginUser(body.getUsername(), body.getPassword());
-        if (response == null){
+        try {
+            LoginResponseDTO response = authenticationService.loginUser(body.getUsername(), body.getPassword());
+            return ResponseEntity.ok(response);
+        } catch (ResponseStatusException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
         }
-        return ResponseEntity.ok(response);
 
     }
 }

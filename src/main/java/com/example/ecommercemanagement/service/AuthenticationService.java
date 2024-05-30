@@ -56,6 +56,12 @@ public class AuthenticationService {
     }
 
     public LoginResponseDTO loginUser(String username, String password) {
+        ApplicationUser user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST,"Wrong email or password"));
+
+        if (!passwordEncoder.matches(password, user.getPassword())){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Wrong email or passsword");
+        }
         try {
             Authentication auth = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(username, password)
@@ -63,11 +69,11 @@ public class AuthenticationService {
 
             String token = tokenService.generateJwt(auth);
 
-            return new LoginResponseDTO(userRepository.findByUsername(username).get(), token);
+            return new LoginResponseDTO(user, token);
 
         } catch (AuthenticationException e) {
 
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "{\"error\": \"Wrong email or password\"}", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Wrong email or password", e);
 
         }
     }
