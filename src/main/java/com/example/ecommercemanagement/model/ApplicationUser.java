@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +19,6 @@ public class ApplicationUser implements UserDetails {
     @Column(name="user_id")
 
     private Integer userId;
-
     @Column(unique = true)
     private String username;
     private String password;
@@ -28,6 +28,9 @@ public class ApplicationUser implements UserDetails {
     private String address;
     private String city;
     private String postCode;
+    private String resetToken;
+
+    private LocalDateTime resetTokenExpiry;
 
     @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(
@@ -171,4 +174,21 @@ public class ApplicationUser implements UserDetails {
     public void setPostCode(String postCode) {
         this.postCode = postCode;
     }
+
+    public String getResetToken() {
+        return resetToken;
+    }
+
+    public void setResetToken(String resetToken) {
+        this.resetToken = resetToken;
+    }
+
+    public LocalDateTime getResetTokenExpiry() {
+        return resetTokenExpiry;
+    }
+
+    public void setResetTokenExpiry(LocalDateTime resetTokenExpiry) {
+        this.resetTokenExpiry = resetTokenExpiry;
+    }
+
 }

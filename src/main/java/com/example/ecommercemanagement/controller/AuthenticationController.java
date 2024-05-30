@@ -5,6 +5,8 @@ import com.example.ecommercemanagement.model.LoginResponseDTO;
 import com.example.ecommercemanagement.model.RegistrationDTO;
 import com.example.ecommercemanagement.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -23,7 +25,12 @@ public class AuthenticationController {
 
     }
     @PostMapping("/login")
-    public LoginResponseDTO loginUser(@RequestBody RegistrationDTO body){
-        return authenticationService.loginUser(body.getUsername(), body.getPassword());
+    public ResponseEntity<?> loginUser(@RequestBody RegistrationDTO body){
+        LoginResponseDTO response = authenticationService.loginUser(body.getUsername(), body.getPassword());
+        if (response == null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
+        }
+        return ResponseEntity.ok(response);
+
     }
 }
