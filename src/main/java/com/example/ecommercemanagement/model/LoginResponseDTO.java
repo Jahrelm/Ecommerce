@@ -4,6 +4,8 @@ public class LoginResponseDTO {
     private ApplicationUser user;
     private String jwt;
 
+
+
     public LoginResponseDTO(ApplicationUser user, String jwt){
         this.user = user;
         this.jwt = jwt;
@@ -25,5 +27,7 @@ public class LoginResponseDTO {
     public void setJwt(String jwt){
         this.jwt = jwt;
     }
+
+
 
 }

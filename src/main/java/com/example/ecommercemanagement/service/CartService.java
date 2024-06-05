@@ -7,10 +7,12 @@ import com.example.ecommercemanagement.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 @Service
 public class CartService {
-    private CartRepository cartRepository;
-    private ProductRepository productRepository;
+    private final CartRepository cartRepository;
+    private final ProductRepository productRepository;
 
     public CartService(CartRepository cartRepository, ProductRepository productRepository){
         this.cartRepository = cartRepository;
@@ -22,17 +24,27 @@ public class CartService {
     }
 
     public Cart addToCart(@RequestParam Long productId, @RequestParam int quantity){
-        Product product = productRepository.findById(productId).orElse(null);
-        if (product == null){
+        Optional<Product> productOptional = productRepository.findById(productId);
+        if (!productOptional.isPresent()){
             return null;
         }
-        Cart cartItem = new Cart();
-        cartItem.setProductId(productId);
-        cartItem.setQuantity(quantity);
-        cartItem.setTitle(product.getTitle());
-        cartItem.setBrand(product.getBrand());
-        cartItem.setPrice(product.getPrice());
-        double totalCost = calculateTotalCost(product.getPrice(), quantity);
+        Product product = productOptional.get();
+        Optional<Cart> cartItemOptional = cartRepository.findByProductId(productId);
+
+        Cart cartItem;
+        if (cartItemOptional.isPresent()) {
+            cartItem = cartItemOptional.get();
+            cartItem.setQuantity(cartItem.getQuantity() + quantity);
+        } else {
+            cartItem = new Cart();
+            cartItem.setProductId(productId);
+            cartItem.setQuantity(quantity);
+            cartItem.setTitle(product.getTitle());
+            cartItem.setBrand(product.getBrand());
+            cartItem.setPrice(product.getPrice());
+        }
+
+        double totalCost = calculateTotalCost(product.getPrice(), cartItem.getQuantity());
         cartItem.setTotalCost(totalCost);
 
         cartItem = cartRepository.save(cartItem);
@@ -41,8 +53,8 @@ public class CartService {
         cartItem.setCartCost(cartCost);
 
         return cartRepository.save(cartItem);
-
     }
+
     public void removeFromCart(Long cartItemId) {
         cartRepository.deleteById(cartItemId);
     }

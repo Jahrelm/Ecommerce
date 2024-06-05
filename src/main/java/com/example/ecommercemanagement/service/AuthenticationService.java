@@ -1,5 +1,8 @@
 package com.example.ecommercemanagement.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.example.ecommercemanagement.model.ApplicationUser;
 import com.example.ecommercemanagement.model.LoginResponseDTO;
 import com.example.ecommercemanagement.model.Role;
@@ -25,6 +28,8 @@ import java.util.UUID;
 @Service
 @Transactional
 public class AuthenticationService {
+
+    private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
 
     @Autowired
     private UserRepository userRepository;
@@ -61,9 +66,12 @@ public class AuthenticationService {
     public LoginResponseDTO loginUser(String username, String password) {
         ApplicationUser user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST,"Wrong email or password"));
+        logger.info("Username: {} ", username);
 
         if (!passwordEncoder.matches(password, user.getPassword())){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Wrong email or passsword");
+            logger.info("Password: {} ", password);
+            logger.info("User.getPassword: {}", user.getPassword());
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Wrong email or password");
         }
         try {
             Authentication auth = authenticationManager.authenticate(
@@ -79,6 +87,7 @@ public class AuthenticationService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Wrong email or password", e);
 
         }
+
     }
     public String intiatePasswordReset(String username){
         ApplicationUser user = userRepository.findByUsername(username)

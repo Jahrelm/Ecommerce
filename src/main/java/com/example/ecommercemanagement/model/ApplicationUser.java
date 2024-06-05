@@ -21,6 +21,12 @@ public class ApplicationUser implements UserDetails {
     private Integer userId;
     @Column(unique = true)
     private String username;
+/*
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "password_reset_id")
+    private PasswordReset reset;
+    */
+
     private String password;
     private String fullName;
     private String phoneNumber;
@@ -190,5 +196,18 @@ public class ApplicationUser implements UserDetails {
     public void setResetTokenExpiry(LocalDateTime resetTokenExpiry) {
         this.resetTokenExpiry = resetTokenExpiry;
     }
+/*
+    public PasswordReset getReset() {
+        return reset;
+    }
+
+    public void setReset(PasswordReset reset) {
+        this.reset = reset;
+    }
+
+    public String getNewPassword(){
+        return reset.getNewPassword();
+    }
+    */
 
 }
