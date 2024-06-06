@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class CartController {
 
         private AuthenticationService authenticationService;
+
         private CartService cartService;
 
         public CartController(CartService cartService) {
@@ -37,14 +38,14 @@ public class CartController {
             }
         }
 
-    @DeleteMapping("/remove/{id}")
+    @DeleteMapping("/remove")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<Cart> removeFromCart(@PathVariable Long id){
-        cartService.removeFromCart(id);
+    public ResponseEntity<Cart> removeFromCart(@RequestParam Long cartItemId){
+        cartService.removeFromCart(cartItemId);
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/remove")
+    @DeleteMapping("/removeAll")
     @PreAuthorize("hasRole('USER')")
     public  ResponseEntity<Cart> removeAllFromCart(){
             try{

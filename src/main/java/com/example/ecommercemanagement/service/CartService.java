@@ -55,7 +55,7 @@ public class CartService {
         return cartRepository.save(cartItem);
     }
 
-    public void removeFromCart(Long cartItemId) {
+    public void removeFromCart(@RequestParam Long cartItemId) {
         cartRepository.deleteById(cartItemId);
     }
 

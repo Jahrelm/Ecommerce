@@ -54,6 +54,7 @@ public class SecurityConfiguration {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> {
+                    auth.requestMatchers("/wishlist/**").permitAll();
                     auth.requestMatchers("/products/**").permitAll();
                     auth.requestMatchers("/cart/**").permitAll();
                     auth.requestMatchers("/auth/**").permitAll();
