@@ -13,7 +13,12 @@ import org.springframework.web.bind.annotation.*;
 public class WishListController {
 
     private WishListService wishListService;
-    @PostMapping("/list")
+
+    public WishListController (WishListService wishListService){
+        this.wishListService = wishListService;
+    }
+
+    @GetMapping("/list")
     @PreAuthorize("hasRole('USER')")
     public Iterable<WishList>list(){
         return wishListService.list();
@@ -29,5 +34,25 @@ public class WishListController {
             return ResponseEntity.notFound().build();
         }
 
+    }
+
+    @DeleteMapping("/remove")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<WishList> removeFromWishList(@RequestParam Long wishListItemId){
+        wishListService.removeFromWishList(wishListItemId);
+        return ResponseEntity.noContent().build();
+
+    }
+
+    @DeleteMapping("/removeAll")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<WishList> removeAllFromWishList(){
+        try{
+            wishListService.removeAllFromWishList();
+            return ResponseEntity.ok().build();
+        }catch(Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+
+        }
     }
 }
