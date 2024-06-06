@@ -47,9 +47,16 @@ public class WishListService {
             wishList.setBrand(product.getBrand());
             wishList.setPrice(product.getPrice());
         }
+        double totalCost = calculateTotalCost(product.getPrice(), wishList.getQuantity());
+        wishList.setTotalCost(totalCost);
 
         return wishListRepository.save(wishList);
 
+    }
+
+    private double calculateTotalCost(String price, int quantity){
+        double productPrice = Double.parseDouble(price.replace("$", ""));
+        return productPrice * quantity;
     }
 
     public void removeFromWishList(@RequestParam Long wishListId){

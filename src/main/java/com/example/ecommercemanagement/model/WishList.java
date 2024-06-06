@@ -24,11 +24,16 @@ public class WishList {
     private int quantity;
 
     private String price;
-   /*
 
-    public double TotalCost;
+    public double totalCost;
+    public double getTotalCost() {
+        return totalCost;
+    }
 
-    public double cartCost;  */
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
+
 
 
     public WishList() {
@@ -82,22 +87,5 @@ public class WishList {
     public void setPrice(String price) {
         this.price = price;
     }
-    /*
-    public double getTotalCost() {
-        return TotalCost;
-    }
-
-    public void setTotalCost(double totalCost) {
-        TotalCost = totalCost;
-    }
-
-    public double getCartCost() {
-        return cartCost;
-    }
-
-    public void setCartCost(double cartCost) {
-        this.cartCost = cartCost;
-    }
-    */
 
 }
