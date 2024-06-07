@@ -15,10 +15,12 @@ public class WishListService {
 
     private final ProductRepository productRepository;
     private final WishListRepository wishListRepository;
+    private final CartService cartService;
 
-    public WishListService(ProductRepository productRepository, WishListRepository wishListRepository){
+    public WishListService(ProductRepository productRepository, WishListRepository wishListRepository, CartService cartService){
         this.productRepository = productRepository;
         this.wishListRepository = wishListRepository;
+        this.cartService = cartService;
     }
 
     public Iterable<WishList> list(){
@@ -64,6 +66,38 @@ public class WishListService {
 
     }
     public void removeAllFromWishList(){
+        wishListRepository.deleteAll();
+    }
+
+    /*
+    public void moveToCart(Long wishListId, int quantity){
+        Optional<WishList> wishListOptional = wishListRepository.findById(wishListId);
+        if (!wishListOptional.isPresent()) {
+            return;
+        }
+
+        WishList wishList = wishListOptional.get();
+        Long productId = wishList.getProductId();
+
+        // Add to cart
+        cartService.addToCart(productId, quantity);
+
+        // Remove from wishlist
+        if (wishList.getQuantity() <= quantity) {
+            wishListRepository.deleteById(wishListId);
+        } else {
+            wishList.setQuantity(wishList.getQuantity() - quantity);
+            wishList.setTotalCost(calculateTotalCost(wishList.getPrice(), wishList.getQuantity()));
+            wishListRepository.save(wishList);
+        }
+        */
+
+
+    public void moveAllToCart(){
+        Iterable<WishList> wishListItems = wishListRepository.findAll();
+        for (WishList wishListItem : wishListItems){
+            cartService.addToCart(wishListItem.getProductId(), wishListItem.getQuantity());
+        }
         wishListRepository.deleteAll();
     }
 }

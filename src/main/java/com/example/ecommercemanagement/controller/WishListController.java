@@ -1,6 +1,7 @@
 package com.example.ecommercemanagement.controller;
 
 import com.example.ecommercemanagement.model.WishList;
+import com.example.ecommercemanagement.repository.WishListRepository;
 import com.example.ecommercemanagement.service.WishListService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +15,10 @@ public class WishListController {
 
     private WishListService wishListService;
 
-    public WishListController (WishListService wishListService){
+
+    public WishListController (WishListService wishListService, WishListRepository wishListRepository){
         this.wishListService = wishListService;
+
     }
 
     @GetMapping("/list")
@@ -54,5 +57,19 @@ public class WishListController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 
         }
+    }
+
+    /*
+    @PostMapping("moveToCart")
+    @PreAuthorize("hasRole('USER')")
+    public void moveToCart(@RequestParam Long wishListId, @RequestParam int quantity){
+        wishListService.moveToCart(wishListId, quantity);
+    }
+    */
+
+    @PostMapping("/moveAllToCart")
+    @PreAuthorize("hasRole('USER')")
+    public void moveAllToCart() {
+        wishListService.moveAllToCart();
     }
 }
