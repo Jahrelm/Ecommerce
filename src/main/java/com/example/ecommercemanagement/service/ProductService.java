@@ -12,13 +12,16 @@ public class ProductService {
     private ProductRepository productRepository;
 
     public ProductService(ProductRepository productRepository){
+
         this.productRepository = productRepository;
     }
 
     public Iterable<Product> list(){
+
         return productRepository.findAll();
     }
     public Product save(Product product){
+
         return productRepository.save(product);
     }
 
