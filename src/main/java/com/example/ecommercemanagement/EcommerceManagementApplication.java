@@ -11,17 +11,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
-import java.util.Set;
-import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 
 @SpringBootApplication
+@EntityScan(basePackages = "com.example.ecommercemanagement.model")
 public class EcommerceManagementApplication {
 
 	public static void main(String[] args) {
@@ -37,6 +39,7 @@ public class EcommerceManagementApplication {
 
 			Set<Role> roles = new HashSet<>();
 			roles.add(adminRole);
+
 
 			ApplicationUser admin = new ApplicationUser(1, "admin", passwordEncode.encode("password"), roles
 			, "Admin Full Name", "1234567890","Admin Country","Admin Address","Admin City","12345");

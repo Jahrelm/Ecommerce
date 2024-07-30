@@ -1,18 +1,14 @@
 package com.example.ecommercemanagement.controller;
 
-import com.example.ecommercemanagement.model.WishList;
-import com.example.ecommercemanagement.repository.WishListRepository;
-import com.example.ecommercemanagement.service.WishListService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/wishlist")
 @CrossOrigin("http://localhost:3000")
 public class WishListController {
-
+/*
     private WishListService wishListService;
 
 
@@ -59,17 +55,19 @@ public class WishListController {
         }
     }
 
-    /*
+
     @PostMapping("moveToCart")
     @PreAuthorize("hasRole('USER')")
     public void moveToCart(@RequestParam Long wishListId, @RequestParam int quantity){
         wishListService.moveToCart(wishListId, quantity);
     }
-    */
+
 
     @PostMapping("/moveAllToCart")
     @PreAuthorize("hasRole('USER')")
     public void moveAllToCart() {
         wishListService.moveAllToCart();
     }
+
+ */
 }

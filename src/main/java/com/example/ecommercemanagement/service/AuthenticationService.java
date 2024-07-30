@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import com.example.ecommercemanagement.model.ApplicationUser;
 import com.example.ecommercemanagement.model.LoginResponseDTO;
-import com.example.ecommercemanagement.model.Role;
+import com.example.ecommercemanagement.model.*;
 import com.example.ecommercemanagement.repository.RoleRepository;
 import com.example.ecommercemanagement.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,8 +49,9 @@ public class AuthenticationService {
     @Autowired
     private EmailService emailService;
 
+
     public ApplicationUser registerUser(String username, String password,String fullName,
-                                        String phoneNumber, String country, String address, String city, String postCode){
+                                        String phoneNumber, String country, String address, String city, String postCode ){
 
         String encodedPassword = passwordEncoder.encode(password);
         Role userRole = roleRepository.findByAuthority("USER").get();
@@ -59,8 +60,11 @@ public class AuthenticationService {
 
         authorities.add(userRole);
 
-        return userRepository.save(new ApplicationUser(0, username, encodedPassword, authorities, fullName,
-                phoneNumber, country, address, city, postCode));
+
+        ApplicationUser newUser = new ApplicationUser(0, username, encodedPassword, authorities, fullName,
+                phoneNumber, country, address, city, postCode);
+
+        return userRepository.save(newUser);
     }
 
     public LoginResponseDTO loginUser(String username, String password) {
@@ -80,6 +84,7 @@ public class AuthenticationService {
 
             String token = tokenService.generateJwt(auth);
 
+
             return new LoginResponseDTO(user, token);
 
         } catch (AuthenticationException e) {
@@ -89,6 +94,8 @@ public class AuthenticationService {
         }
 
     }
+
+
     public String intiatePasswordReset(String username){
         ApplicationUser user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST,"User not found"));

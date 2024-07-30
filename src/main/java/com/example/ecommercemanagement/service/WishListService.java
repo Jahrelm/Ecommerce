@@ -1,18 +1,11 @@
 package com.example.ecommercemanagement.service;
 
-import com.example.ecommercemanagement.model.Product;
-import com.example.ecommercemanagement.model.WishList;
-import com.example.ecommercemanagement.repository.ProductRepository;
-import com.example.ecommercemanagement.repository.WishListRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.Optional;
 
 
 @Service
 public class WishListService {
-
+/*
     private final ProductRepository productRepository;
     private final WishListRepository wishListRepository;
     private final CartService cartService;
@@ -26,7 +19,9 @@ public class WishListService {
     public Iterable<WishList> list(){
         return wishListRepository.findAll();
     }
+    */
 
+/*
     public WishList addToWishList(@RequestParam Long productId, @RequestParam int quantity){
         Optional<Product> productOptional = productRepository.findById(productId);
 
@@ -68,6 +63,8 @@ public class WishListService {
     public void removeAllFromWishList(){
         wishListRepository.deleteAll();
     }
+    */
+
 
     /*
     public void moveToCart(Long wishListId, int quantity){
@@ -92,7 +89,7 @@ public class WishListService {
         }
         */
 
-
+/*
     public void moveAllToCart(){
         Iterable<WishList> wishListItems = wishListRepository.findAll();
         for (WishList wishListItem : wishListItems){
@@ -100,4 +97,6 @@ public class WishListService {
         }
         wishListRepository.deleteAll();
     }
+    */
+
 }

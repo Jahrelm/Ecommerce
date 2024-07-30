@@ -17,7 +17,6 @@ public class ApplicationUser implements UserDetails {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="user_id")
-
     private Integer userId;
     @Column(unique = true)
     private String username;
@@ -37,6 +36,17 @@ public class ApplicationUser implements UserDetails {
     private String resetToken;
 
     private LocalDateTime resetTokenExpiry;
+
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
+    private Set<Cart> carts;
+
+    public Set<Cart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(Set<Cart> carts) {
+        this.carts = carts;
+    }
 
     @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(
@@ -64,7 +74,9 @@ public class ApplicationUser implements UserDetails {
         this.address = address;
         this.city = city;
         this.postCode = postCode;
+
     }
+
 
     public Integer getUserId() {
         return userId;

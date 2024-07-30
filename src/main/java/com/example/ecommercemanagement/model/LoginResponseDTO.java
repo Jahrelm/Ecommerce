@@ -6,6 +6,8 @@ public class LoginResponseDTO {
 
 
 
+
+
     public LoginResponseDTO(ApplicationUser user, String jwt){
         this.user = user;
         this.jwt = jwt;

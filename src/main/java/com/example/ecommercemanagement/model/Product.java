@@ -11,7 +11,10 @@ import lombok.Data;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name= "product_id")
+    private Long productId;
+
+
     private String image;
     private String brand;
     private int review;
@@ -23,16 +26,19 @@ public class Product {
     private Integer campaignProductSale;
     private String productType;
 
+    @ManyToOne
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
 
     public Product() {
     }
 
     public Long getId() {
-        return id;
+        return productId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.productId = productId;
     }
 
     public String getImage() {

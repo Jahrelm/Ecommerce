@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<ApplicationUser, Integer> {
     Optional<ApplicationUser> findByUsername(String Username);
     Optional<ApplicationUser> findByResetToken(String resetToken);
+
+    Optional<ApplicationUser> findByUserId(int userId);
 }

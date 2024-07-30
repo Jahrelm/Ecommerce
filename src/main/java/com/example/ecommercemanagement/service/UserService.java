@@ -1,5 +1,6 @@
 package com.example.ecommercemanagement.service;
 
+import com.example.ecommercemanagement.model.ApplicationUser;
 import com.example.ecommercemanagement.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,6 +25,10 @@ public class UserService implements UserDetailsService {
 
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("user is not valid"));
 
-        }
+    }
+
+    public ApplicationUser FindUserById(int userId){
+        return userRepository.findByUserId(userId).orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
+    }
 
 }

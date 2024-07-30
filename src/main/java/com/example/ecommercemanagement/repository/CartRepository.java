@@ -8,6 +8,7 @@ import java.util.Optional;
 @Repository
 public interface CartRepository extends CrudRepository<Cart, Long> {
     Optional<Cart> findByProductId(Long productId);
+    Optional<Cart> findByUserId(int userId);
 
 
 }
