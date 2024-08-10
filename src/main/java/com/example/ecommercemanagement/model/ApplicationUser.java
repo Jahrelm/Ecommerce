@@ -38,13 +38,13 @@ public class ApplicationUser implements UserDetails {
     private LocalDateTime resetTokenExpiry;
 
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
-    private Set<Cart> carts;
+    private Collection<Cart> carts;
 
-    public Set<Cart> getCarts() {
+    public Collection<Cart> getCarts() {
         return carts;
     }
 
-    public void setCarts(Set<Cart> carts) {
+    public void setCarts(Collection<Cart> carts) {
         this.carts = carts;
     }
 
