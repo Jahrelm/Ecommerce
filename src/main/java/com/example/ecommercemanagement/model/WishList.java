@@ -1,43 +1,32 @@
 package com.example.ecommercemanagement.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
-@AllArgsConstructor
-@Entity
+@Entity(name = "wishList")
 public class WishList {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String title;
+    @ManyToOne
+    @JoinColumn(name =" user_id", nullable = false)
+    @JsonManagedReference
+    private ApplicationUser user;
 
-    private String brand;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "wishList", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<WishListItem> wishListItems = new ArrayList<>();
 
-    private Long productId;
+    private double totalCost;
 
-    private int quantity;
-
-    private String price;
-
-    public double totalCost;
-    public double getTotalCost() {
-        return totalCost;
-    }
-
-    public void setTotalCost(double totalCost) {
-        this.totalCost = totalCost;
-    }
-
-
-
-    public WishList() {
-
+    public WishList(){
+        this.wishListItems = new ArrayList<>();
     }
 
     public Long getId() {
@@ -48,44 +37,27 @@ public class WishList {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public ApplicationUser getUser() {
+        return user;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setUser(ApplicationUser user) {
+        this.user = user;
     }
 
-    public String getBrand() {
-        return brand;
+    public List<WishListItem> getWishListItems() {
+        return wishListItems;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setWishListItems(List<WishListItem> wishListItems) {
+        this.wishListItems = wishListItems;
     }
 
-    public Long getProductId() {
-        return productId;
+    public double getTotalCost() {
+        return totalCost;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
     }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
 }

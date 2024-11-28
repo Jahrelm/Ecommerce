@@ -26,9 +26,7 @@ public class Product {
     private Integer campaignProductSale;
     private String productType;
 
-    @ManyToOne
-    @JoinColumn(name = "cart_id")
-    private Cart cart;
+
 
     public Product() {
     }

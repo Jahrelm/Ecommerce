@@ -1,129 +1,27 @@
-2024-08-10 12:25:46 - Starting EcommerceManagementApplication using Java 21.0.1 with PID 4736 (/Users/user/Downloads/ecommerce-management/target/classes started by user in /Users/user/Downloads/ecommerce-management)
-2024-08-10 12:25:46 - No active profile set, falling back to 1 default profile: "default"
-2024-08-10 12:25:47 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-10 12:25:47 - Finished Spring Data repository scanning in 94 ms. Found 7 JPA repository interfaces.
-2024-08-10 12:25:48 - Tomcat initialized with port 8080 (http)
-2024-08-10 12:25:48 - Starting service [Tomcat]
-2024-08-10 12:25:48 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-08-10 12:25:48 - Initializing Spring embedded WebApplicationContext
-2024-08-10 12:25:48 - Root WebApplicationContext: initialization completed in 2133 ms
-2024-08-10 12:25:48 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-10 12:25:49 - HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-08-10 12:25:49 - HHH000026: Second-level cache disabled
-2024-08-10 12:25:49 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-10 12:25:49 - HikariPool-1 - Starting...
-2024-08-10 12:25:49 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7cd3e0da
-2024-08-10 12:25:49 - HikariPool-1 - Start completed.
-2024-08-10 12:25:51 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-10 12:25:51 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-10 12:25:53 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-10 12:25:53 - 17 mappings in 'requestMappingHandlerMapping'
-2024-08-10 12:25:53 - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-08-10 12:25:53 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e6fbf82, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@55d776ac, org.springframework.security.web.context.SecurityContextHolderFilter@2f006edf, org.springframework.security.web.header.HeaderWriterFilter@e38d655, org.springframework.web.filter.CorsFilter@1de6f29d, org.springframework.security.web.authentication.logout.LogoutFilter@3e8995cc, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@7c4697fc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@28dd038f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@31d8352e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@488c608a, org.springframework.security.web.session.SessionManagementFilter@6a7cbeed, org.springframework.security.web.access.ExceptionTranslationFilter@86e8469, org.springframework.security.web.access.intercept.AuthorizationFilter@4fbed6fc]
-2024-08-10 12:25:53 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-08-10 12:25:53 - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-08-10 12:25:53 - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-08-10 12:25:54 - Tomcat started on port 8080 (http) with context path ''
-2024-08-10 12:25:54 - Started EcommerceManagementApplication in 8.274 seconds (process running for 8.844)
-2024-08-10 12:27:20 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-10 12:27:20 - Initializing Servlet 'dispatcherServlet'
-2024-08-10 12:27:20 - Detected StandardServletMultipartResolver
-2024-08-10 12:27:20 - Detected AcceptHeaderLocaleResolver
-2024-08-10 12:27:20 - Detected FixedThemeResolver
-2024-08-10 12:27:20 - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2b4675db
-2024-08-10 12:27:20 - Detected org.springframework.web.servlet.support.SessionFlashMapManager@3031d9e9
-2024-08-10 12:27:20 - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-08-10 12:27:20 - Completed initialization in 6 ms
-2024-08-10 12:27:21 - POST "/auth/login", parameters={}
-2024-08-10 12:27:21 - Mapped to com.example.ecommercemanagement.controller.AuthenticationController#loginUser(RegistrationDTO)
-2024-08-10 12:27:21 - Read "application/json;charset=UTF-8" to [Registration info: Email : timotechdev@gmail.compassword : T1mothy1234%Full Name : nullPhone Number  (truncated)...]
-2024-08-10 12:27:21 - Username: timotechdev@gmail.com 
-2024-08-10 12:27:21 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2024-08-10 12:27:21 - Writing [com.example.ecommercemanagement.model.LoginResponseDTO@657e000]
-2024-08-10 12:27:21 - Completed 200 OK
-2024-08-10 12:27:37 - POST "/cart/add/1052?productId=703&quantity=6", parameters={masked}
-2024-08-10 12:27:37 - Mapped to com.example.ecommercemanagement.controller.CartController#addToCart(int, Long, int)
-2024-08-10 12:27:37 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2024-08-10 12:27:37 - Writing [com.example.ecommercemanagement.model.Cart@7f6c9108]
-2024-08-10 12:27:37 - Completed 201 CREATED
-2024-08-10 12:28:27 - GET "/cart/list?userid=1052", parameters={masked}
-2024-08-10 12:28:27 - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
-2024-08-10 12:28:27 - Resource not found
-2024-08-10 12:28:27 - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource cart/list.]
-2024-08-10 12:28:27 - Completed 404 NOT_FOUND
-2024-08-10 12:28:27 - "ERROR" dispatch for GET "/error?userid=1052", parameters={masked}
-2024-08-10 12:28:27 - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
-2024-08-10 12:28:27 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2024-08-10 12:28:27 - Writing [{timestamp=Sat Aug 10 12:28:27 EST 2024, status=404, error=Not Found, path=/cart/list}]
-2024-08-10 12:28:27 - Exiting from "ERROR" dispatch, status 404
-2024-08-10 12:34:26 - GET "/cart/list?userid=1052", parameters={masked}
-2024-08-10 12:34:26 - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
-2024-08-10 12:34:26 - Resource not found
-2024-08-10 12:34:26 - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource cart/list.]
-2024-08-10 12:34:26 - Completed 404 NOT_FOUND
-2024-08-10 12:34:26 - "ERROR" dispatch for GET "/error?userid=1052", parameters={masked}
-2024-08-10 12:34:26 - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
-2024-08-10 12:34:26 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2024-08-10 12:34:26 - Writing [{timestamp=Sat Aug 10 12:34:26 EST 2024, status=404, error=Not Found, path=/cart/list}]
-2024-08-10 12:34:26 - Exiting from "ERROR" dispatch, status 404
-2024-08-10 12:58:06 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-10 12:58:06 - HikariPool-1 - Shutdown initiated...
-2024-08-10 12:58:06 - HikariPool-1 - Shutdown completed.
-2024-08-10 12:58:26 - Starting EcommerceManagementApplication using Java 21.0.1 with PID 5514 (/Users/user/Downloads/ecommerce-management/target/classes started by user in /Users/user/Downloads/ecommerce-management)
-2024-08-10 12:58:26 - No active profile set, falling back to 1 default profile: "default"
-2024-08-10 12:58:27 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-10 12:58:27 - Finished Spring Data repository scanning in 85 ms. Found 7 JPA repository interfaces.
-2024-08-10 12:58:28 - Tomcat initialized with port 8080 (http)
-2024-08-10 12:58:28 - Starting service [Tomcat]
-2024-08-10 12:58:28 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-08-10 12:58:28 - Initializing Spring embedded WebApplicationContext
-2024-08-10 12:58:28 - Root WebApplicationContext: initialization completed in 2071 ms
-2024-08-10 12:58:29 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-10 12:58:29 - HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-08-10 12:58:29 - HHH000026: Second-level cache disabled
-2024-08-10 12:58:29 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-10 12:58:29 - HikariPool-1 - Starting...
-2024-08-10 12:58:30 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3407aa4f
-2024-08-10 12:58:30 - HikariPool-1 - Start completed.
-2024-08-10 12:58:31 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-10 12:58:31 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-10 12:58:33 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-10 12:58:33 - 17 mappings in 'requestMappingHandlerMapping'
-2024-08-10 12:58:34 - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-08-10 12:58:34 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3c1ef806, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@969c2f9, org.springframework.security.web.context.SecurityContextHolderFilter@5f5076f9, org.springframework.security.web.header.HeaderWriterFilter@51d41b97, org.springframework.web.filter.CorsFilter@7bbc11ed, org.springframework.security.web.authentication.logout.LogoutFilter@20843604, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@3e8995cc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6f53f5a4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@21ebf9be, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7d741200, org.springframework.security.web.session.SessionManagementFilter@77262e71, org.springframework.security.web.access.ExceptionTranslationFilter@379df603, org.springframework.security.web.access.intercept.AuthorizationFilter@4b8c9729]
-2024-08-10 12:58:34 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-08-10 12:58:34 - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-08-10 12:58:34 - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-08-10 12:58:34 - Tomcat started on port 8080 (http) with context path ''
-2024-08-10 12:58:34 - Started EcommerceManagementApplication in 8.42 seconds (process running for 8.972)
-2024-08-10 13:00:05 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-10 13:00:05 - Initializing Servlet 'dispatcherServlet'
-2024-08-10 13:00:05 - Detected StandardServletMultipartResolver
-2024-08-10 13:00:05 - Detected AcceptHeaderLocaleResolver
-2024-08-10 13:00:05 - Detected FixedThemeResolver
-2024-08-10 13:00:05 - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3c83e9ca
-2024-08-10 13:00:05 - Detected org.springframework.web.servlet.support.SessionFlashMapManager@7c4de811
-2024-08-10 13:00:05 - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-08-10 13:00:05 - Completed initialization in 11 ms
-2024-08-10 13:00:05 - POST "/auth/login", parameters={}
-2024-08-10 13:00:05 - Mapped to com.example.ecommercemanagement.controller.AuthenticationController#loginUser(RegistrationDTO)
-2024-08-10 13:00:05 - Read "application/json;charset=UTF-8" to [Registration info: Email : timotechdev@gmail.compassword : T1mothy1234%Full Name : nullPhone Number  (truncated)...]
-2024-08-10 13:00:05 - Username: timotechdev@gmail.com 
-2024-08-10 13:00:06 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2024-08-10 13:00:06 - Writing [com.example.ecommercemanagement.model.LoginResponseDTO@64211f53]
-2024-08-10 13:00:06 - Completed 200 OK
-2024-08-10 13:01:10 - POST "/cart/add/1052?productId=704&quantity=6", parameters={masked}
-2024-08-10 13:01:10 - Mapped to com.example.ecommercemanagement.controller.CartController#addToCart(int, Long, int)
-2024-08-10 13:01:10 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2024-08-10 13:01:10 - Writing [com.example.ecommercemanagement.model.Cart@228304f]
-2024-08-10 13:01:10 - Completed 201 CREATED
-2024-08-10 13:01:32 - GET "/cart/list?userid=1052", parameters={masked}
-2024-08-10 13:01:32 - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
-2024-08-10 13:01:32 - Resource not found
-2024-08-10 13:01:32 - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource cart/list.]
-2024-08-10 13:01:32 - Completed 404 NOT_FOUND
-2024-08-10 13:01:32 - "ERROR" dispatch for GET "/error?userid=1052", parameters={masked}
-2024-08-10 13:01:32 - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
-2024-08-10 13:01:32 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2024-08-10 13:01:32 - Writing [{timestamp=Sat Aug 10 13:01:32 EST 2024, status=404, error=Not Found, path=/cart/list}]
-2024-08-10 13:01:32 - Exiting from "ERROR" dispatch, status 404
+2024-11-28 10:20:25 - Starting EcommerceManagementApplication using Java 21.0.1 with PID 6393 (/Users/user/Downloads/ecommerce-management/target/classes started by user in /Users/user/Downloads/ecommerce-management)
+2024-11-28 10:20:25 - No active profile set, falling back to 1 default profile: "default"
+2024-11-28 10:20:26 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-28 10:20:27 - Finished Spring Data repository scanning in 107 ms. Found 9 JPA repository interfaces.
+2024-11-28 10:20:27 - Tomcat initialized with port 8080 (http)
+2024-11-28 10:20:27 - Starting service [Tomcat]
+2024-11-28 10:20:27 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-11-28 10:20:28 - Initializing Spring embedded WebApplicationContext
+2024-11-28 10:20:28 - Root WebApplicationContext: initialization completed in 2131 ms
+2024-11-28 10:20:28 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-28 10:20:28 - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-11-28 10:20:28 - HHH000026: Second-level cache disabled
+2024-11-28 10:20:28 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-28 10:20:28 - HikariPool-1 - Starting...
+2024-11-28 10:20:29 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2b9e69fb
+2024-11-28 10:20:29 - HikariPool-1 - Start completed.
+2024-11-28 10:20:31 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-28 10:20:31 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-28 10:20:33 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-28 10:20:34 - 18 mappings in 'requestMappingHandlerMapping'
+2024-11-28 10:20:34 - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-11-28 10:20:34 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5aa461, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f3e6876, org.springframework.security.web.context.SecurityContextHolderFilter@1bd53c5c, org.springframework.security.web.header.HeaderWriterFilter@6f9e6a85, org.springframework.web.filter.CorsFilter@52c2d1e8, org.springframework.security.web.authentication.logout.LogoutFilter@79aa675b, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@2d6e09f0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72e9f0f7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2fb24ad8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a67bcaf, org.springframework.security.web.session.SessionManagementFilter@2040732f, org.springframework.security.web.access.ExceptionTranslationFilter@162a5c4c, org.springframework.security.web.access.intercept.AuthorizationFilter@3bf306d3]
+2024-11-28 10:20:34 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-11-28 10:20:34 - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-11-28 10:20:34 - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2024-11-28 10:20:34 - Tomcat started on port 8080 (http) with context path ''
+2024-11-28 10:20:34 - Started EcommerceManagementApplication in 9.612 seconds (process running for 10.171)

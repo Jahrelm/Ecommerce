@@ -1,18 +1,21 @@
 package com.example.ecommercemanagement.service;
 
+import com.example.ecommercemanagement.model.ApplicationUser;
 import com.example.ecommercemanagement.model.Cart;
+import com.example.ecommercemanagement.model.CartItem;
 import com.example.ecommercemanagement.model.Product;
+import com.example.ecommercemanagement.repository.CartItemRepository;
 import com.example.ecommercemanagement.repository.CartRepository;
 import com.example.ecommercemanagement.repository.ProductRepository;
 import com.example.ecommercemanagement.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CartService {
@@ -21,94 +24,76 @@ public class CartService {
     private final CartRepository cartRepository;
     private final ProductRepository productRepository;
 
+    private final CartItemRepository cartItemRepository;
+
     private final UserRepository userRepository;
 
-    public CartService(CartRepository cartRepository, ProductRepository productRepository,UserRepository userRepository){
+    public CartService(CartRepository cartRepository, ProductRepository productRepository,UserRepository userRepository, CartItemRepository cartItemRepository){
         this.cartRepository = cartRepository;
         this.productRepository = productRepository;
         this.userRepository = userRepository;
+        this.cartItemRepository = cartItemRepository;
     }
 
-    public Iterable<Cart> list(int userId){
-        Optional<Cart> cartOptional = cartRepository.findByUserId(userId);
-        if (cartOptional.isPresent()){
-            return cartRepository.findAll();
-        } else{
-            throw new RuntimeException("User with ID " + userId + " not found");
-        }
+    public List<Cart> findCartsByProductId(Long productId) {
+        List<CartItem> cartItems = cartItemRepository.findByProductId(productId);
+        return cartItems.stream()
+                .map(CartItem::getCart)
+                .distinct()
+                .collect(Collectors.toList());
+    }
 
+    public Iterable<Cart> list(int userId) {
+        ApplicationUser user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User with ID " + userId + " not found"));
+        Optional<Cart> cartOptional = cartRepository.findByUser(user);
+        return cartOptional.map(Collections::singletonList).orElse(Collections.emptyList());
     }
 
 
-    /*
-    public Cart addToCart( long productId,int quantity, int userId){
-
-        Optional<Cart> cartOptional = cartRepository.findByUserId(userId);
-        Optional<Product> productOptional = productRepository.findById(productId);
-        Product product = productOptional.get();
-        if(cartOptional.isPresent()){
-            Cart cart = cartOptional.get();
-            Iterable<Cart> userCartItems = cartRepository.findAll();
-            for (Cart cartItem : userCartItems){
-                if(cartItem.getProducts().equals(product)){
-                    cartItem.setQuantity(cartItem.getQuantity() + quantity);
-
-                }else{
-                    cartItem.getProducts().add(product);
-                    cartItem.setQuantity(cartItem.getQuantity() + quantity);
-                    break;
-                }
-            }
-            return cartRepository.save(cart);
-
-        }else{
-            Cart userCart = new Cart();
-            userCart.setUserId(userId);
-            userCart.setProducts(new ArrayList<>(Collections.singletonList(product)));
-            userCart.setQuantity(quantity);
-            return cartRepository.save(userCart);
-
-        }
-    }
-    */
     public Cart addToCart(long productId, int quantity, int userId) {
-        Optional<Cart> cartOptional = cartRepository.findByUserId(userId);
+        logger.info("Entering addToCart with ProductId: {}, Quantity: {}, UserId: {}", productId, quantity, userId);
+
+        ApplicationUser user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
+
         Optional<Product> productOptional = productRepository.findById(productId);
-        if (productOptional.isPresent()) {
-            Product product = productOptional.get();
-            if (cartOptional.isPresent()) {
-                Cart cart = cartOptional.get();
-                boolean productExistsInCart = false;
-                for (Product p : cart.getProducts()) {
-                    if (p.getProductId().equals(productId)) {
-                        cart.setQuantity(cart.getQuantity() + quantity);
-                        productExistsInCart = true;
-                        break;
-                    }
-                }
-                if (!productExistsInCart) {
-                    cart.getProducts().add(product);
-                    cart.setQuantity(cart.getQuantity() + quantity);
-                }
-                return cartRepository.save(cart);
-            } else {
-                Cart userCart = new Cart();
-                userCart.setUserId(userId);
-                userCart.setProducts(new ArrayList<>(Collections.singletonList(product)));
-                userCart.setQuantity(quantity);
-                return cartRepository.save(userCart);
-            }
-        }else{
+        if (!productOptional.isPresent()) {
             throw new RuntimeException("Product with ID " + productId + " not found");
         }
 
+        Product product = productOptional.get();
+        Cart cart = cartRepository.findByUser(user).orElseGet(() -> {
+            Cart newCart = new Cart();
+            newCart.setUser(user);
+            return cartRepository.save(newCart);
+        });
+
+        Optional<CartItem> cartItemOptional = cart.getCartItems().stream()
+                .filter(item -> item.getProduct().getProductId().equals(productId))
+                .findFirst();
+
+        CartItem cartItem;
+        if (cartItemOptional.isPresent()) {
+            cartItem = cartItemOptional.get();
+            cartItem.setQuantity(cartItem.getQuantity() + quantity);
+        } else {
+            cartItem = new CartItem();
+            cartItem.setCart(cart);
+            cartItem.setProduct(product);
+            cartItem.setQuantity(quantity);
+            cart.getCartItems().add(cartItem);
+        }
+
+        cartItem.calculateSubTotal();
+        cart.setTotalCost(cart.getCartItems().stream().mapToDouble(CartItem::getSubTotal).sum());
+
+        return cartRepository.save(cart);
     }
 
-
-    public void removeFromCart(@RequestParam Long cartItemId) {
-        cartRepository.deleteById(cartItemId);
+    public void removeFromCart(Long cartItemId) {
+        cartItemRepository.deleteById(cartItemId);
     }
-
     public void removeAllFromCart(){
         cartRepository.deleteAll();
     }

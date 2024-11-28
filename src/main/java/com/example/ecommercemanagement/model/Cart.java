@@ -1,80 +1,33 @@
 package com.example.ecommercemanagement.model;
 
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 
-import java.util.Collection;
-
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Cart")
 public class Cart {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonManagedReference
+    private ApplicationUser user;
 
-    @JoinColumn(name = "user_id")
-    @Column(name="user_id")
-    private Integer userId;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<CartItem> cartItems = new ArrayList<>();
 
-    @JoinColumn(name = "product_id")
-    @Column(name="product_id")
-    private Long productId;
-
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
-    @Valid
-    private Collection<Product> Products;
-
-    private int quantity;
-    public double totalCost;
-
-    public double cartCost;
+    private double totalCost;
 
     public Cart() {
-        // Default constructor
-    }
-
-    public Cart(Long id, Integer userId, Long productId, Collection<Product> products, int quantity, double totalCost, double cartCost) {
-        this.id = id;
-        this.userId = userId;
-        this.productId = productId;
-        Products = products;
-        this.quantity = quantity;
-        this.totalCost = totalCost;
-        this.cartCost = cartCost;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public Collection<Product> getProducts() {
-        return Products;
-    }
-
-    public void setProducts(Collection<Product> products) {
-        Products = products;
-    }
-
-    public double getCartCost() {
-        return cartCost;
-    }
-
-    public void setCartCost(double cartCost) {
-        this.cartCost = cartCost;
+        this.cartItems = new ArrayList<>();
     }
 
     public Long getId() {
@@ -85,13 +38,20 @@ public class Cart {
         this.id = id;
     }
 
-
-    public int getQuantity() {
-        return quantity;
+    public ApplicationUser getUser() {
+        return user;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setUser(ApplicationUser user) {
+        this.user = user;
+    }
+
+    public List<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
     }
 
     public double getTotalCost() {
@@ -101,5 +61,4 @@ public class Cart {
     public void setTotalCost(double totalCost) {
         this.totalCost = totalCost;
     }
-
 }

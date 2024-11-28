@@ -1,5 +1,6 @@
 package com.example.ecommercemanagement.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -37,8 +38,11 @@ public class ApplicationUser implements UserDetails {
 
     private LocalDateTime resetTokenExpiry;
 
-    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private Collection<Cart> carts;
+
+
 
     public Collection<Cart> getCarts() {
         return carts;

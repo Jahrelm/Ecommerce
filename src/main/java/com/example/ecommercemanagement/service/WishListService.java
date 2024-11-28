@@ -1,102 +1,99 @@
 package com.example.ecommercemanagement.service;
 
+
+import com.example.ecommercemanagement.model.*;
+import com.example.ecommercemanagement.repository.ProductRepository;
+import com.example.ecommercemanagement.repository.UserRepository;
+import com.example.ecommercemanagement.repository.WishListItemRepository;
+import com.example.ecommercemanagement.repository.WishListRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Service
 public class WishListService {
-/*
-    private final ProductRepository productRepository;
+    //private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
+
     private final WishListRepository wishListRepository;
-    private final CartService cartService;
 
-    public WishListService(ProductRepository productRepository, WishListRepository wishListRepository, CartService cartService){
-        this.productRepository = productRepository;
+    private final WishListItemRepository wishListItemRepository;
+
+    private final ProductRepository productRepository;
+
+    private final UserRepository userRepository;
+
+
+    public WishListService(WishListRepository wishListRepository, WishListItemRepository wishListItemRepository,
+                           ProductRepository productRepository, UserRepository userRepository){
+
         this.wishListRepository = wishListRepository;
-        this.cartService = cartService;
+        this.wishListItemRepository = wishListItemRepository;
+        this.productRepository = productRepository;
+        this.userRepository = userRepository;
     }
 
-    public Iterable<WishList> list(){
-        return wishListRepository.findAll();
+    public List<WishList> findWishListsByProductId(Long productId) {
+        List<WishListItem> wishListItems = wishListItemRepository.findByProductId(productId);
+        return wishListItems.stream()
+                .map(WishListItem::getWishList)
+                .distinct()
+                .collect(Collectors.toList());
     }
-    */
 
-/*
-    public WishList addToWishList(@RequestParam Long productId, @RequestParam int quantity){
-        Optional<Product> productOptional = productRepository.findById(productId);
+    public Iterable<WishList> list(int userId){
+        ApplicationUser user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User with ID" + userId + "not found"));
+        Optional<WishList> wishListOptional = wishListRepository.findByUser(user);
+        return wishListOptional.map(Collections::singletonList).orElse(Collections.emptyList());
+    }
+    public WishList addToWishList(long productId, int quantity, int userId){
+        ApplicationUser user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not Found with ID: " + userId));
 
-        if (!productOptional.isPresent()){
-            return null;
+        Optional<Product> productOptional  = productRepository.findById(productId);
+        if (!productOptional.isPresent()) {
+            throw new RuntimeException("Product with ID " + productId + "not found");
         }
-
         Product product = productOptional.get();
-        Optional<WishList> wishListOptional = wishListRepository.findByProductId(productId);
+        WishList wishList = wishListRepository.findByUser(user).orElseGet(() -> {
+            WishList newWishList = new WishList();
+            newWishList.setUser(user);
+            return wishListRepository.save(newWishList);
 
-        WishList wishList;
-        if(wishListOptional.isPresent()){
-            wishList = wishListOptional.get();
-            wishList.setQuantity(wishList.getQuantity() + quantity);
+        });
+
+        Optional<WishListItem> wishListItemOptional = wishList.getWishListItems().stream()
+                .filter(item -> item.getProduct().getProductId().equals(productId))
+                .findFirst();
+
+        WishListItem wishListItem;
+        if(wishListItemOptional.isPresent()){
+            wishListItem = wishListItemOptional.get();
+            wishListItem.setQuantity(wishListItem.getQuantity() + quantity);
         } else {
-            wishList = new WishList();
-            wishList.setProductId(productId);
-            wishList.setQuantity(quantity);
-            wishList.setTitle(product.getTitle());
-            wishList.setBrand(product.getBrand());
-            wishList.setPrice(product.getPrice());
+            wishListItem = new WishListItem();
+            wishListItem.setWishList(wishList);
+            wishListItem.setProduct(product);
+            wishListItem.setQuantity(quantity);
+            wishList.getWishListItems().add(wishListItem);
         }
-        double totalCost = calculateTotalCost(product.getPrice(), wishList.getQuantity());
-        wishList.setTotalCost(totalCost);
+        wishListItem.calculateSubTotal();
+        wishList.setTotalCost(wishList.getWishListItems().stream().mapToDouble(WishListItem::getSubTotal).sum());
 
         return wishListRepository.save(wishList);
 
     }
 
-    private double calculateTotalCost(String price, int quantity){
-        double productPrice = Double.parseDouble(price.replace("$", ""));
-        return productPrice * quantity;
-    }
-
-    public void removeFromWishList(@RequestParam Long wishListId){
-        wishListRepository.deleteById(wishListId);
-
-    }
-    public void removeAllFromWishList(){
-        wishListRepository.deleteAll();
-    }
-    */
 
 
-    /*
-    public void moveToCart(Long wishListId, int quantity){
-        Optional<WishList> wishListOptional = wishListRepository.findById(wishListId);
-        if (!wishListOptional.isPresent()) {
-            return;
-        }
+    
 
-        WishList wishList = wishListOptional.get();
-        Long productId = wishList.getProductId();
 
-        // Add to cart
-        cartService.addToCart(productId, quantity);
 
-        // Remove from wishlist
-        if (wishList.getQuantity() <= quantity) {
-            wishListRepository.deleteById(wishListId);
-        } else {
-            wishList.setQuantity(wishList.getQuantity() - quantity);
-            wishList.setTotalCost(calculateTotalCost(wishList.getPrice(), wishList.getQuantity()));
-            wishListRepository.save(wishList);
-        }
-        */
 
-/*
-    public void moveAllToCart(){
-        Iterable<WishList> wishListItems = wishListRepository.findAll();
-        for (WishList wishListItem : wishListItems){
-            cartService.addToCart(wishListItem.getProductId(), wishListItem.getQuantity());
-        }
-        wishListRepository.deleteAll();
-    }
-    */
 
 }

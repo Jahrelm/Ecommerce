@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/cart")
 @CrossOrigin("http://localhost:3000")
@@ -29,21 +31,30 @@ public class CartController {
             this.userService = userService;
         }
 
-        @GetMapping("/list/{userId}")
-        @PreAuthorize("hasRole('USER')")
-        public ResponseEntity<Iterable<Cart>> list(@PathVariable int userId){
-            ApplicationUser user = userService.FindUserById(userId);
-            if( user !=null ){
-                Iterable<Cart> carts = cartService.list(userId);
-                return ResponseEntity.ok(carts);
-            }else{
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-
-            }
-
+    @GetMapping("/by-product/{productId}")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<List<Cart>> getCartsByProductId(@PathVariable Long productId) {
+        try {
+            List<Cart> carts = cartService.findCartsByProductId(productId);
+            return ResponseEntity.ok(carts);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
+    }
 
-        @PostMapping("/add/{userId}")
+    @GetMapping("/list/{userId}")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<Iterable<Cart>> list(@PathVariable int userId) {
+        try {
+            Iterable<Cart> carts = cartService.list(userId);
+            return ResponseEntity.ok(carts);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
+
+    @PostMapping("/add/{userId}")
         @PreAuthorize("hasRole('USER')")
         public ResponseEntity<Cart> addToCart(@PathVariable int userId, @RequestParam Long productId, @RequestParam int quantity) {
             ApplicationUser user = userService.FindUserById(userId);
