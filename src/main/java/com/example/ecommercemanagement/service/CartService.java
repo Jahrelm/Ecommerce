@@ -91,8 +91,17 @@ public class CartService {
         return cartRepository.save(cart);
     }
 
-    public void removeFromCart(Long cartItemId) {
+    public Cart removeFromCart(Long cartItemId) {
+        CartItem cartItem = cartItemRepository.findById(cartItemId)
+                .orElseThrow(() -> new RuntimeException("Cart item not found with ID " + cartItemId));
+
+        Cart cart = cartItem.getCart();
         cartItemRepository.deleteById(cartItemId);
+        cart.getCartItems().removeIf(item -> item.getId().equals(cartItemId));
+        cart.setTotalCost(cart.getCartItems().stream()
+                .mapToDouble(CartItem::getSubTotal)
+                .sum());
+        return cartRepository.save(cart);
     }
     public void removeAllFromCart(){
         cartRepository.deleteAll();
@@ -110,11 +119,6 @@ public class CartService {
         }
         return cartCost;
     }
-/*
-    public Set<Cart> getCartsForUser(Integer userId) {
-        ApplicationUser user = userRepository.findById(userId).orElse(null);
-        return user != null ? user.getCarts() : null;
-    }
-    */
+
 
 }

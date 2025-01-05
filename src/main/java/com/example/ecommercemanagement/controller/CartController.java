@@ -74,13 +74,17 @@ public class CartController {
     @DeleteMapping("/remove")
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Cart> removeFromCart(@RequestParam Long cartItemId){
-        cartService.removeFromCart(cartItemId);
-        return ResponseEntity.noContent().build();
+        try {
+            Cart updatedCart = cartService.removeFromCart(cartItemId);
+            return ResponseEntity.ok(updatedCart);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @DeleteMapping("/removeAll")
     @PreAuthorize("hasRole('USER')")
-    public  ResponseEntity<Cart> removeAllFromCart(){
+    public ResponseEntity<Cart> removeAllFromCart(){
             try{
                 cartService.removeAllFromCart();;
                 return ResponseEntity.ok().build();

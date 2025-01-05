@@ -2,10 +2,7 @@ package com.example.ecommercemanagement.service;
 
 
 import com.example.ecommercemanagement.model.*;
-import com.example.ecommercemanagement.repository.ProductRepository;
-import com.example.ecommercemanagement.repository.UserRepository;
-import com.example.ecommercemanagement.repository.WishListItemRepository;
-import com.example.ecommercemanagement.repository.WishListRepository;
+import com.example.ecommercemanagement.repository.*;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -26,14 +23,18 @@ public class WishListService {
 
     private final UserRepository userRepository;
 
+    private final CartService cartService;
+
 
     public WishListService(WishListRepository wishListRepository, WishListItemRepository wishListItemRepository,
-                           ProductRepository productRepository, UserRepository userRepository){
+                           ProductRepository productRepository, UserRepository userRepository,
+                           CartService cartService){
 
         this.wishListRepository = wishListRepository;
         this.wishListItemRepository = wishListItemRepository;
         this.productRepository = productRepository;
         this.userRepository = userRepository;
+        this.cartService = cartService;
     }
 
     public List<WishList> findWishListsByProductId(Long productId) {
@@ -88,12 +89,45 @@ public class WishListService {
 
     }
 
+    public void removeFromWishList(Long wishListId){
+        wishListItemRepository.deleteById(wishListId);
+    }
+    public void removeAllFromWishList(){
+        wishListRepository.deleteAll();
+    }
+    private double calculateTotalCost(String price, int quantity){
+        double productPrice = Double.parseDouble(price.replace("$", ""));
+        return productPrice * quantity;
+    }
+    private double calculateWishListCost() {
+        Iterable<WishList> wishListItems = wishListRepository.findAll();
+        double wishListCost = 0.0;
+        for (WishList wishListItem : wishListItems) {
+            wishListCost += wishListItem.getTotalCost();
+        }
+        return wishListCost;
+    }
 
+    public WishList addToWishListToCart(int userId){
+        ApplicationUser user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found with ID" + userId));
 
-    
+       WishList wishList = wishListRepository.findByUser(user)
+               .orElseThrow(() -> new RuntimeException("Wishlist not found for user"+ user));
 
+       for(WishListItem item : wishList.getWishListItems()){
+           try{
+               cartService.addToCart(item.getProduct().getProductId(), item.getQuantity(), userId);
+           } catch (Exception e){
+               System.err.println("Error adding product ID " + item.getProduct().getProductId() + " to cart: " + e.getMessage());
+           }
+       }
 
+       wishList.getWishListItems().clear();
+       wishList.setTotalCost(0);
+       wishListRepository.save(wishList);
 
-
+       return wishList;
+    }
 
 }
