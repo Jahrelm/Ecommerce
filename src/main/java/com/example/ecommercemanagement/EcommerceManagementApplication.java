@@ -42,7 +42,7 @@ public class EcommerceManagementApplication {
 
 
 			ApplicationUser admin = new ApplicationUser(1, "admin", passwordEncode.encode("password"), roles
-			, "Admin Full Name", "1234567890","Admin Country","Admin Address","Admin City","12345");
+					, "Admin Full Name", "1234567890","Admin Country","Admin Address","Admin City","12345");
 
 			userRepository.save(admin);
 		};
@@ -50,6 +50,11 @@ public class EcommerceManagementApplication {
 	@Bean
 	CommandLineRunner runner(ProductService productService) {
 		return args -> {
+			// Check if products already exist in the database
+			if (productService.count() > 0) {
+				System.out.println("Products already exist in the database. Skipping initialization.");
+				return;
+			}
 			// read json and write to db
 			ObjectMapper mapper = new ObjectMapper();
 			TypeReference<List<Product>> typeReference = new TypeReference<List<Product>>(){};

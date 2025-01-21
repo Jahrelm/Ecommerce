@@ -1,77 +1,84 @@
-2025-01-04 17:22:34 - Starting EcommerceManagementApplication using Java 21.0.1 with PID 50263 (/Users/user/Downloads/ecommerce-management/target/classes started by user in /Users/user/Downloads/ecommerce-management)
-2025-01-04 17:22:34 - No active profile set, falling back to 1 default profile: "default"
-2025-01-04 17:22:36 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-01-04 17:22:36 - Finished Spring Data repository scanning in 170 ms. Found 9 JPA repository interfaces.
-2025-01-04 17:22:37 - Tomcat initialized with port 8080 (http)
-2025-01-04 17:22:37 - Starting service [Tomcat]
-2025-01-04 17:22:37 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2025-01-04 17:22:37 - Initializing Spring embedded WebApplicationContext
-2025-01-04 17:22:37 - Root WebApplicationContext: initialization completed in 2958 ms
-2025-01-04 17:22:37 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-01-04 17:22:37 - HHH000412: Hibernate ORM core version 6.4.1.Final
-2025-01-04 17:22:37 - HHH000026: Second-level cache disabled
-2025-01-04 17:22:38 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-01-04 17:22:38 - HikariPool-1 - Starting...
-2025-01-04 17:22:38 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4a660b34
-2025-01-04 17:22:38 - HikariPool-1 - Start completed.
-2025-01-04 17:22:40 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-01-04 17:22:41 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-01-04 17:22:44 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-04 17:22:44 - 23 mappings in 'requestMappingHandlerMapping'
-2025-01-04 17:22:44 - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2025-01-04 17:22:44 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7da40bf4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75708130, org.springframework.security.web.context.SecurityContextHolderFilter@7d31fb6c, org.springframework.security.web.header.HeaderWriterFilter@3811464b, org.springframework.web.filter.CorsFilter@c651286, org.springframework.security.web.authentication.logout.LogoutFilter@4db10b9f, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@40273969, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@cda988, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7e92e9a2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@40304938, org.springframework.security.web.session.SessionManagementFilter@650a0b50, org.springframework.security.web.access.ExceptionTranslationFilter@94b5fe3, org.springframework.security.web.access.intercept.AuthorizationFilter@38eafdab]
-2025-01-04 17:22:44 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2025-01-04 17:22:45 - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2025-01-04 17:22:45 - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2025-01-04 17:22:45 - Tomcat started on port 8080 (http) with context path ''
-2025-01-04 17:22:45 - Started EcommerceManagementApplication in 11.846 seconds (process running for 12.476)
-2025-01-04 17:22:52 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-01-04 17:22:52 - Initializing Servlet 'dispatcherServlet'
-2025-01-04 17:22:52 - Detected StandardServletMultipartResolver
-2025-01-04 17:22:52 - Detected AcceptHeaderLocaleResolver
-2025-01-04 17:22:52 - Detected FixedThemeResolver
-2025-01-04 17:22:52 - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@60c68c7b
-2025-01-04 17:22:52 - Detected org.springframework.web.servlet.support.SessionFlashMapManager@7a0df38e
-2025-01-04 17:22:52 - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2025-01-04 17:22:52 - Completed initialization in 5 ms
-2025-01-04 17:22:52 - POST "/auth/login", parameters={}
-2025-01-04 17:22:52 - Mapped to com.example.ecommercemanagement.controller.AuthenticationController#loginUser(RegistrationDTO)
-2025-01-04 17:22:52 - Read "application/json;charset=UTF-8" to [Registration info: Email : jahrelm12@gmail.compassword : T1mothy123Full Name : nullPhone Number : nu (truncated)...]
-2025-01-04 17:22:53 - Username: jahrelm12@gmail.com 
-2025-01-04 17:22:53 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 17:22:53 - Writing [com.example.ecommercemanagement.model.LoginResponseDTO@49174477]
-2025-01-04 17:22:53 - Completed 200 OK
-2025-01-04 17:23:33 - GET "/wishlist/list/1152", parameters={}
-2025-01-04 17:23:33 - Mapped to com.example.ecommercemanagement.controller.WishListController#list(int)
-2025-01-04 17:23:33 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 17:23:33 - Writing [[WishList(id=502, user=com.example.ecommercemanagement.model.ApplicationUser@2bb75497, wishListItems (truncated)...]
-2025-01-04 17:23:33 - Completed 200 OK
-2025-01-04 17:23:46 - POST "/wishlist/moveToCart/1152", parameters={}
-2025-01-04 17:23:46 - Mapped to com.example.ecommercemanagement.controller.WishListController#addToWishListToCart(int)
-2025-01-04 17:23:46 - Entering addToCart with ProductId: 712, Quantity: 1, UserId: 1152
-2025-01-04 17:23:46 - Entering addToCart with ProductId: 715, Quantity: 5, UserId: 1152
-2025-01-04 17:23:46 - Entering addToCart with ProductId: 716, Quantity: 7, UserId: 1152
-2025-01-04 17:23:46 - Entering addToCart with ProductId: 719, Quantity: 3, UserId: 1152
-2025-01-04 17:23:46 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 17:23:46 - Writing [WishList(id=502, user=com.example.ecommercemanagement.model.ApplicationUser@24a98caf, wishListItems= (truncated)...]
-2025-01-04 17:23:46 - Completed 201 CREATED
-2025-01-04 17:24:25 - GET "/wishlist/list/1152", parameters={}
-2025-01-04 17:24:25 - Mapped to com.example.ecommercemanagement.controller.WishListController#list(int)
-2025-01-04 17:24:25 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 17:24:25 - Writing [[WishList(id=502, user=com.example.ecommercemanagement.model.ApplicationUser@6bcee77f, wishListItems (truncated)...]
-2025-01-04 17:24:25 - Completed 200 OK
-2025-01-04 17:24:28 - GET "/wishlist/list/1152", parameters={}
-2025-01-04 17:24:28 - Mapped to com.example.ecommercemanagement.controller.WishListController#list(int)
-2025-01-04 17:24:28 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 17:24:28 - Writing [[WishList(id=502, user=com.example.ecommercemanagement.model.ApplicationUser@3d0d1b35, wishListItems (truncated)...]
-2025-01-04 17:24:28 - Completed 200 OK
-2025-01-04 17:25:19 - POST "/wishlist/add/1152?productId=722&quantity=1", parameters={masked}
-2025-01-04 17:25:19 - Mapped to com.example.ecommercemanagement.controller.WishListController#addToWishList(Long, int, int)
-2025-01-04 17:25:19 - Failed to complete request: java.lang.RuntimeException: Product with ID 722not found
-2025-01-04 17:25:19 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: Product with ID 722not found] with root cause
-java.lang.RuntimeException: Product with ID 722not found
-	at com.example.ecommercemanagement.service.WishListService.addToWishList(WishListService.java:60)
-	at com.example.ecommercemanagement.controller.WishListController.addToWishList(WishListController.java:50)
+2025-01-20 22:14:30 - Starting EcommerceManagementApplication using Java 21.0.1 with PID 4626 (/Users/user/Downloads/ecommerce-management/target/classes started by user in /Users/user/Downloads/ecommerce-management)
+2025-01-20 22:14:30 - No active profile set, falling back to 1 default profile: "default"
+2025-01-20 22:14:32 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-20 22:14:32 - Finished Spring Data repository scanning in 100 ms. Found 9 JPA repository interfaces.
+2025-01-20 22:14:33 - Tomcat initialized with port 8080 (http)
+2025-01-20 22:14:33 - Starting service [Tomcat]
+2025-01-20 22:14:33 - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2025-01-20 22:14:33 - Initializing Spring embedded WebApplicationContext
+2025-01-20 22:14:33 - Root WebApplicationContext: initialization completed in 2345 ms
+2025-01-20 22:14:33 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-20 22:14:33 - HHH000412: Hibernate ORM core version 6.4.1.Final
+2025-01-20 22:14:33 - HHH000026: Second-level cache disabled
+2025-01-20 22:14:34 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-20 22:14:34 - HikariPool-1 - Starting...
+2025-01-20 22:14:34 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4b4927e5
+2025-01-20 22:14:34 - HikariPool-1 - Start completed.
+2025-01-20 22:14:36 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-20 22:14:36 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-20 22:14:39 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-20 22:14:39 - 24 mappings in 'requestMappingHandlerMapping'
+2025-01-20 22:14:39 - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-01-20 22:14:39 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7a90f33d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c7b27c, org.springframework.security.web.context.SecurityContextHolderFilter@52a3eba3, org.springframework.security.web.header.HeaderWriterFilter@71b6edfb, org.springframework.web.filter.CorsFilter@2bd8c8f1, org.springframework.security.web.authentication.logout.LogoutFilter@40612056, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@597eb9ac, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7ec729be, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f7da3a2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7db63a01, org.springframework.security.web.session.SessionManagementFilter@764d54a0, org.springframework.security.web.access.ExceptionTranslationFilter@536f389, org.springframework.security.web.access.intercept.AuthorizationFilter@77e64a46]
+2025-01-20 22:14:40 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-01-20 22:14:40 - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-01-20 22:14:40 - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-01-20 22:14:40 - Tomcat started on port 8080 (http) with context path ''
+2025-01-20 22:14:40 - Started EcommerceManagementApplication in 10.304 seconds (process running for 11.069)
+2025-01-20 22:18:27 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-20 22:18:27 - Initializing Servlet 'dispatcherServlet'
+2025-01-20 22:18:27 - Detected StandardServletMultipartResolver
+2025-01-20 22:18:27 - Detected AcceptHeaderLocaleResolver
+2025-01-20 22:18:27 - Detected FixedThemeResolver
+2025-01-20 22:18:27 - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@67e37d25
+2025-01-20 22:18:27 - Detected org.springframework.web.servlet.support.SessionFlashMapManager@6d97a357
+2025-01-20 22:18:27 - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-01-20 22:18:27 - Completed initialization in 5 ms
+2025-01-20 22:18:27 - POST "/auth/login", parameters={}
+2025-01-20 22:18:27 - Mapped to com.example.ecommercemanagement.controller.AuthenticationController#loginUser(RegistrationDTO)
+2025-01-20 22:18:27 - Read "application/json;charset=UTF-8" to [Registration info: Email : jahrelm12@gmail.compassword : T1mothy123Full Name : nullPhone Number : nu (truncated)...]
+2025-01-20 22:18:28 - Username: jahrelm12@gmail.com 
+2025-01-20 22:18:28 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-20 22:18:28 - Writing [com.example.ecommercemanagement.model.LoginResponseDTO@10563739]
+2025-01-20 22:18:28 - Completed 200 OK
+2025-01-20 22:20:01 - POST "/products-checkout/checkout", parameters={}
+2025-01-20 22:20:01 - Mapped to com.example.ecommercemanagement.controller.ProductCheckoutController#checkoutProducts(CartItem)
+2025-01-20 22:20:02 - Read "application/json;charset=UTF-8" to [com.example.ecommercemanagement.model.CartItem@18417629]
+2025-01-20 22:20:03 - Failed to complete request: org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null
+2025-01-20 22:20:03 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null] with root cause
+java.lang.IllegalArgumentException: The given id must not be null
+	at org.springframework.util.Assert.notNull(Assert.java:172)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:302)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
+	at jdk.proxy2/jdk.proxy2.$Proxy137.findById(Unknown Source)
+	at com.example.ecommercemanagement.service.ProductService.reduceStock(ProductService.java:47)
+	at com.example.ecommercemanagement.service.StripeService.checkoutProducts(StripeService.java:57)
+	at com.example.ecommercemanagement.controller.ProductCheckoutController.checkoutProducts(ProductCheckoutController.java:27)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:261)
@@ -170,281 +177,55 @@ java.lang.RuntimeException: Product with ID 722not found
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2025-01-04 17:25:21 - "ERROR" dispatch for POST "/error?productId=722&quantity=1", parameters={masked}
-2025-01-04 17:25:21 - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
-2025-01-04 17:25:21 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 17:25:21 - Writing [{timestamp=Sat Jan 04 17:25:21 EST 2025, status=500, error=Internal Server Error, path=/wishlist/add (truncated)...]
-2025-01-04 17:25:21 - Exiting from "ERROR" dispatch, status 500
-2025-01-04 17:25:41 - POST "/wishlist/add/1152?productId=720&quantity=3", parameters={masked}
-2025-01-04 17:25:41 - Mapped to com.example.ecommercemanagement.controller.WishListController#addToWishList(Long, int, int)
-2025-01-04 17:25:41 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 17:25:41 - Writing [WishList(id=502, user=com.example.ecommercemanagement.model.ApplicationUser@3e5c6820, wishListItems= (truncated)...]
-2025-01-04 17:25:41 - Completed 201 CREATED
-2025-01-04 17:39:19 - GET "/wishlist/list/1152", parameters={}
-2025-01-04 17:39:19 - Mapped to com.example.ecommercemanagement.controller.WishListController#list(int)
-2025-01-04 17:39:19 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 17:39:19 - Writing [[WishList(id=502, user=com.example.ecommercemanagement.model.ApplicationUser@334a2d2e, wishListItems (truncated)...]
-2025-01-04 17:39:19 - Completed 200 OK
-2025-01-04 17:40:03 - GET "/cart/list/1152", parameters={}
-2025-01-04 17:40:03 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 17:40:03 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 17:40:03 - Writing [[com.example.ecommercemanagement.model.Cart@671227f6]]
-2025-01-04 17:40:03 - Completed 200 OK
-2025-01-04 17:40:23 - POST "/wishlist/moveToCart/1152", parameters={}
-2025-01-04 17:40:23 - Mapped to com.example.ecommercemanagement.controller.WishListController#addToWishListToCart(int)
-2025-01-04 17:40:23 - Entering addToCart with ProductId: 712, Quantity: 1, UserId: 1152
-2025-01-04 17:40:23 - Entering addToCart with ProductId: 715, Quantity: 5, UserId: 1152
-2025-01-04 17:40:23 - Entering addToCart with ProductId: 716, Quantity: 7, UserId: 1152
-2025-01-04 17:40:23 - Entering addToCart with ProductId: 719, Quantity: 3, UserId: 1152
-2025-01-04 17:40:23 - Entering addToCart with ProductId: 720, Quantity: 3, UserId: 1152
-2025-01-04 17:40:23 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 17:40:23 - Writing [WishList(id=502, user=com.example.ecommercemanagement.model.ApplicationUser@236c31fd, wishListItems= (truncated)...]
-2025-01-04 17:40:23 - Completed 201 CREATED
-2025-01-04 17:40:29 - GET "/cart/list/1152", parameters={}
-2025-01-04 17:40:29 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 17:40:29 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 17:40:29 - Writing [[com.example.ecommercemanagement.model.Cart@4e683726]]
-2025-01-04 17:40:29 - Completed 200 OK
-2025-01-04 18:10:07 - DELETE "/cart/remove?cartItemId=1", parameters={masked}
-2025-01-04 18:10:07 - Mapped to com.example.ecommercemanagement.controller.CartController#removeFromCart(Long)
-2025-01-04 18:10:07 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:10:07 - Nothing to write: null body
-2025-01-04 18:10:07 - Completed 204 NO_CONTENT
-2025-01-04 18:10:22 - GET "/cart/list/1152", parameters={}
-2025-01-04 18:10:22 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 18:10:22 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:10:22 - Writing [[com.example.ecommercemanagement.model.Cart@31732883]]
-2025-01-04 18:10:22 - Completed 200 OK
-2025-01-04 18:10:36 - GET "/cart/list/1152", parameters={}
-2025-01-04 18:10:36 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 18:10:36 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:10:36 - Writing [[com.example.ecommercemanagement.model.Cart@7c3eb4db]]
-2025-01-04 18:10:36 - Completed 200 OK
-2025-01-04 18:12:22 - GET "/cart/list/1152", parameters={}
-2025-01-04 18:12:22 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 18:12:22 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:12:22 - Writing [[com.example.ecommercemanagement.model.Cart@5d538de9]]
-2025-01-04 18:12:22 - Completed 200 OK
-2025-01-04 18:12:47 - GET "/cart/list/1152", parameters={}
-2025-01-04 18:12:47 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 18:12:47 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:12:47 - Writing [[com.example.ecommercemanagement.model.Cart@2acd0263]]
-2025-01-04 18:12:47 - Completed 200 OK
-2025-01-04 18:14:36 - DELETE "/cart/remove?cartItemId=1", parameters={masked}
-2025-01-04 18:14:36 - Mapped to com.example.ecommercemanagement.controller.CartController#removeFromCart(Long)
-2025-01-04 18:14:36 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:14:36 - Nothing to write: null body
-2025-01-04 18:14:36 - Completed 204 NO_CONTENT
-2025-01-04 18:14:49 - GET "/cart/list/1152", parameters={}
-2025-01-04 18:14:49 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 18:14:49 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:14:49 - Writing [[com.example.ecommercemanagement.model.Cart@6c311b57]]
-2025-01-04 18:14:49 - Completed 200 OK
-2025-01-04 18:24:34 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-01-04 18:24:34 - HikariPool-1 - Shutdown initiated...
-2025-01-04 18:24:34 - HikariPool-1 - Shutdown completed.
-2025-01-04 18:24:53 - Starting EcommerceManagementApplication using Java 21.0.1 with PID 51706 (/Users/user/Downloads/ecommerce-management/target/classes started by user in /Users/user/Downloads/ecommerce-management)
-2025-01-04 18:24:53 - No active profile set, falling back to 1 default profile: "default"
-2025-01-04 18:24:54 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-01-04 18:24:54 - Finished Spring Data repository scanning in 98 ms. Found 9 JPA repository interfaces.
-2025-01-04 18:24:55 - Tomcat initialized with port 8080 (http)
-2025-01-04 18:24:55 - Starting service [Tomcat]
-2025-01-04 18:24:55 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2025-01-04 18:24:55 - Initializing Spring embedded WebApplicationContext
-2025-01-04 18:24:55 - Root WebApplicationContext: initialization completed in 2382 ms
-2025-01-04 18:24:56 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-01-04 18:24:56 - HHH000412: Hibernate ORM core version 6.4.1.Final
-2025-01-04 18:24:56 - HHH000026: Second-level cache disabled
-2025-01-04 18:24:56 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-01-04 18:24:56 - HikariPool-1 - Starting...
-2025-01-04 18:24:57 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@17134190
-2025-01-04 18:24:57 - HikariPool-1 - Start completed.
-2025-01-04 18:24:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-01-04 18:24:59 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-01-04 18:25:00 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-04 18:25:00 - 23 mappings in 'requestMappingHandlerMapping'
-2025-01-04 18:25:01 - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2025-01-04 18:25:01 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e0c03bd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@61e4a072, org.springframework.security.web.context.SecurityContextHolderFilter@235d46b2, org.springframework.security.web.header.HeaderWriterFilter@6cee52e2, org.springframework.web.filter.CorsFilter@32f2de5c, org.springframework.security.web.authentication.logout.LogoutFilter@1db7a4ae, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@373c8f35, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f83616, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@162a5c4c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a6df932, org.springframework.security.web.session.SessionManagementFilter@413e8246, org.springframework.security.web.access.ExceptionTranslationFilter@698daff6, org.springframework.security.web.access.intercept.AuthorizationFilter@7c4de811]
-2025-01-04 18:25:01 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2025-01-04 18:25:01 - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2025-01-04 18:25:01 - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2025-01-04 18:25:01 - Tomcat started on port 8080 (http) with context path ''
-2025-01-04 18:25:01 - Started EcommerceManagementApplication in 9.12 seconds (process running for 9.67)
-2025-01-04 18:26:04 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-01-04 18:26:04 - Initializing Servlet 'dispatcherServlet'
-2025-01-04 18:26:04 - Detected StandardServletMultipartResolver
-2025-01-04 18:26:04 - Detected AcceptHeaderLocaleResolver
-2025-01-04 18:26:04 - Detected FixedThemeResolver
-2025-01-04 18:26:04 - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@18b88f7
-2025-01-04 18:26:04 - Detected org.springframework.web.servlet.support.SessionFlashMapManager@4b6942a0
-2025-01-04 18:26:04 - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2025-01-04 18:26:04 - Completed initialization in 4 ms
-2025-01-04 18:26:04 - POST "/auth/login", parameters={}
-2025-01-04 18:26:04 - Mapped to com.example.ecommercemanagement.controller.AuthenticationController#loginUser(RegistrationDTO)
-2025-01-04 18:26:04 - Read "application/json;charset=UTF-8" to [Registration info: Email : jahrelm12@gmail.compassword : T1mothy123Full Name : nullPhone Number : nu (truncated)...]
-2025-01-04 18:26:04 - Username: jahrelm12@gmail.com 
-2025-01-04 18:26:04 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:26:04 - Writing [com.example.ecommercemanagement.model.LoginResponseDTO@5f8bf634]
-2025-01-04 18:26:04 - Completed 200 OK
-2025-01-04 18:26:33 - GET "/cart/list/1152", parameters={}
-2025-01-04 18:26:33 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 18:26:33 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:26:33 - Writing [[com.example.ecommercemanagement.model.Cart@7340cb45]]
-2025-01-04 18:26:33 - Completed 200 OK
-2025-01-04 18:28:39 - DELETE "/cart/remove?cartItemId=1", parameters={masked}
-2025-01-04 18:28:39 - Mapped to com.example.ecommercemanagement.controller.CartController#removeFromCart(Long)
-2025-01-04 18:28:39 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:28:39 - Nothing to write: null body
-2025-01-04 18:28:39 - Completed 204 NO_CONTENT
-2025-01-04 18:28:48 - GET "/cart/list/1152", parameters={}
-2025-01-04 18:28:48 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 18:28:48 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:28:48 - Writing [[com.example.ecommercemanagement.model.Cart@3df0cdc]]
-2025-01-04 18:28:48 - Completed 200 OK
-2025-01-04 18:34:32 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-01-04 18:34:32 - HikariPool-1 - Shutdown initiated...
-2025-01-04 18:34:32 - HikariPool-1 - Shutdown completed.
-2025-01-04 18:34:49 - Starting EcommerceManagementApplication using Java 21.0.1 with PID 51916 (/Users/user/Downloads/ecommerce-management/target/classes started by user in /Users/user/Downloads/ecommerce-management)
-2025-01-04 18:34:49 - No active profile set, falling back to 1 default profile: "default"
-2025-01-04 18:34:50 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-01-04 18:34:50 - Finished Spring Data repository scanning in 95 ms. Found 9 JPA repository interfaces.
-2025-01-04 18:34:51 - Tomcat initialized with port 8080 (http)
-2025-01-04 18:34:51 - Starting service [Tomcat]
-2025-01-04 18:34:51 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2025-01-04 18:34:51 - Initializing Spring embedded WebApplicationContext
-2025-01-04 18:34:51 - Root WebApplicationContext: initialization completed in 1872 ms
-2025-01-04 18:34:51 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-01-04 18:34:51 - HHH000412: Hibernate ORM core version 6.4.1.Final
-2025-01-04 18:34:51 - HHH000026: Second-level cache disabled
-2025-01-04 18:34:51 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-01-04 18:34:51 - HikariPool-1 - Starting...
-2025-01-04 18:34:52 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@72fb989b
-2025-01-04 18:34:52 - HikariPool-1 - Start completed.
-2025-01-04 18:34:53 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-01-04 18:34:53 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-01-04 18:34:55 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-04 18:34:56 - 23 mappings in 'requestMappingHandlerMapping'
-2025-01-04 18:34:56 - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2025-01-04 18:34:56 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1e86b2d1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@65029fc, org.springframework.security.web.context.SecurityContextHolderFilter@4e00723b, org.springframework.security.web.header.HeaderWriterFilter@280e4390, org.springframework.web.filter.CorsFilter@4865434e, org.springframework.security.web.authentication.logout.LogoutFilter@c0a8787, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@4830c979, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59d7d574, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@94b5fe3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c6e407, org.springframework.security.web.session.SessionManagementFilter@3390621a, org.springframework.security.web.access.ExceptionTranslationFilter@28468162, org.springframework.security.web.access.intercept.AuthorizationFilter@6764201e]
-2025-01-04 18:34:56 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2025-01-04 18:34:56 - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2025-01-04 18:34:56 - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2025-01-04 18:34:56 - Tomcat started on port 8080 (http) with context path ''
-2025-01-04 18:34:56 - Started EcommerceManagementApplication in 7.972 seconds (process running for 8.382)
-2025-01-04 18:35:14 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-01-04 18:35:14 - Initializing Servlet 'dispatcherServlet'
-2025-01-04 18:35:14 - Detected StandardServletMultipartResolver
-2025-01-04 18:35:14 - Detected AcceptHeaderLocaleResolver
-2025-01-04 18:35:14 - Detected FixedThemeResolver
-2025-01-04 18:35:14 - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1d6ed085
-2025-01-04 18:35:14 - Detected org.springframework.web.servlet.support.SessionFlashMapManager@57def953
-2025-01-04 18:35:14 - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2025-01-04 18:35:14 - Completed initialization in 7 ms
-2025-01-04 18:35:14 - POST "/auth/login", parameters={}
-2025-01-04 18:35:14 - Mapped to com.example.ecommercemanagement.controller.AuthenticationController#loginUser(RegistrationDTO)
-2025-01-04 18:35:14 - Read "application/json;charset=UTF-8" to [Registration info: Email : jahrelm12@gmail.compassword : T1mothy123Full Name : nullPhone Number : nu (truncated)...]
-2025-01-04 18:35:14 - Username: jahrelm12@gmail.com 
-2025-01-04 18:35:14 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:35:14 - Writing [com.example.ecommercemanagement.model.LoginResponseDTO@2ea816a9]
-2025-01-04 18:35:14 - Completed 200 OK
-2025-01-04 18:35:30 - GET "/cart/list/1152", parameters={}
-2025-01-04 18:35:30 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 18:35:30 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:35:30 - Writing [[com.example.ecommercemanagement.model.Cart@493eff22]]
-2025-01-04 18:35:30 - Completed 200 OK
-2025-01-04 18:36:56 - DELETE "/cart/remove?cartItemId=1", parameters={masked}
-2025-01-04 18:36:56 - Mapped to com.example.ecommercemanagement.controller.CartController#removeFromCart(Long)
-2025-01-04 18:36:56 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:36:56 - Writing [com.example.ecommercemanagement.model.Cart@28f5665e]
-2025-01-04 18:36:56 - Completed 200 OK
-2025-01-04 18:37:21 - DELETE "/cart/remove?cartItemId=52", parameters={masked}
-2025-01-04 18:37:21 - Mapped to com.example.ecommercemanagement.controller.CartController#removeFromCart(Long)
-2025-01-04 18:37:21 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:37:21 - Writing [com.example.ecommercemanagement.model.Cart@a843e34]
-2025-01-04 18:37:21 - Completed 200 OK
-2025-01-04 18:37:35 - DELETE "/cart/remove?cartItemId=711", parameters={masked}
-2025-01-04 18:37:35 - Mapped to com.example.ecommercemanagement.controller.CartController#removeFromCart(Long)
-2025-01-04 18:37:35 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:37:35 - Nothing to write: null body
-2025-01-04 18:37:35 - Completed 500 INTERNAL_SERVER_ERROR
-2025-01-04 18:37:42 - GET "/cart/list/1152", parameters={}
-2025-01-04 18:37:42 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 18:37:42 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:37:42 - Writing [[com.example.ecommercemanagement.model.Cart@e8c33df]]
-2025-01-04 18:37:42 - Completed 200 OK
-2025-01-04 18:38:04 - DELETE "/cart/remove?cartItemId=52", parameters={masked}
-2025-01-04 18:38:04 - Mapped to com.example.ecommercemanagement.controller.CartController#removeFromCart(Long)
-2025-01-04 18:38:04 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:38:04 - Writing [com.example.ecommercemanagement.model.Cart@3fbc70c6]
-2025-01-04 18:38:04 - Completed 200 OK
-2025-01-04 18:48:22 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-01-04 18:48:22 - HikariPool-1 - Shutdown initiated...
-2025-01-04 18:48:22 - HikariPool-1 - Shutdown completed.
-2025-01-04 18:48:36 - Starting EcommerceManagementApplication using Java 21.0.1 with PID 52229 (/Users/user/Downloads/ecommerce-management/target/classes started by user in /Users/user/Downloads/ecommerce-management)
-2025-01-04 18:48:36 - No active profile set, falling back to 1 default profile: "default"
-2025-01-04 18:48:38 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-01-04 18:48:38 - Finished Spring Data repository scanning in 101 ms. Found 9 JPA repository interfaces.
-2025-01-04 18:48:38 - Tomcat initialized with port 8080 (http)
-2025-01-04 18:48:38 - Starting service [Tomcat]
-2025-01-04 18:48:38 - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2025-01-04 18:48:38 - Initializing Spring embedded WebApplicationContext
-2025-01-04 18:48:38 - Root WebApplicationContext: initialization completed in 1949 ms
-2025-01-04 18:48:39 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-01-04 18:48:39 - HHH000412: Hibernate ORM core version 6.4.1.Final
-2025-01-04 18:48:39 - HHH000026: Second-level cache disabled
-2025-01-04 18:48:39 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-01-04 18:48:39 - HikariPool-1 - Starting...
-2025-01-04 18:48:39 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3407aa4f
-2025-01-04 18:48:39 - HikariPool-1 - Start completed.
-2025-01-04 18:48:41 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-01-04 18:48:41 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-01-04 18:48:42 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-04 18:48:42 - 23 mappings in 'requestMappingHandlerMapping'
-2025-01-04 18:48:43 - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2025-01-04 18:48:43 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1db7a4ae, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ab70df7, org.springframework.security.web.context.SecurityContextHolderFilter@3df7e309, org.springframework.security.web.header.HeaderWriterFilter@1acd2a14, org.springframework.web.filter.CorsFilter@6764201e, org.springframework.security.web.authentication.logout.LogoutFilter@2df7766b, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@72e9f0f7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f3c27e9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1fd4850b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a3d52a0, org.springframework.security.web.session.SessionManagementFilter@63f16350, org.springframework.security.web.access.ExceptionTranslationFilter@4a561f7d, org.springframework.security.web.access.intercept.AuthorizationFilter@7d31fb6c]
-2025-01-04 18:48:43 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2025-01-04 18:48:43 - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2025-01-04 18:48:43 - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2025-01-04 18:48:43 - Tomcat started on port 8080 (http) with context path ''
-2025-01-04 18:48:43 - Started EcommerceManagementApplication in 7.141 seconds (process running for 7.572)
-2025-01-04 18:48:50 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-01-04 18:48:50 - Initializing Servlet 'dispatcherServlet'
-2025-01-04 18:48:50 - Detected StandardServletMultipartResolver
-2025-01-04 18:48:50 - Detected AcceptHeaderLocaleResolver
-2025-01-04 18:48:50 - Detected FixedThemeResolver
-2025-01-04 18:48:50 - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@bb896e9
-2025-01-04 18:48:50 - Detected org.springframework.web.servlet.support.SessionFlashMapManager@1b89debc
-2025-01-04 18:48:50 - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2025-01-04 18:48:50 - Completed initialization in 7 ms
-2025-01-04 18:48:50 - POST "/auth/login", parameters={}
-2025-01-04 18:48:50 - Mapped to com.example.ecommercemanagement.controller.AuthenticationController#loginUser(RegistrationDTO)
-2025-01-04 18:48:50 - Read "application/json;charset=UTF-8" to [Registration info: Email : jahrelm12@gmail.compassword : T1mothy123Full Name : nullPhone Number : nu (truncated)...]
-2025-01-04 18:48:50 - Username: jahrelm12@gmail.com 
-2025-01-04 18:48:51 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:48:51 - Writing [com.example.ecommercemanagement.model.LoginResponseDTO@76a8e1ca]
-2025-01-04 18:48:51 - Completed 200 OK
-2025-01-04 18:49:12 - GET "/cart/list/1152", parameters={}
-2025-01-04 18:49:12 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 18:49:12 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:49:12 - Writing [[com.example.ecommercemanagement.model.Cart@1e117905]]
-2025-01-04 18:49:12 - Completed 200 OK
-2025-01-04 18:49:34 - DELETE "/cart/remove?cartItemId=52", parameters={masked}
-2025-01-04 18:49:34 - Mapped to com.example.ecommercemanagement.controller.CartController#removeFromCart(Long)
-2025-01-04 18:49:34 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:49:34 - Writing [com.example.ecommercemanagement.model.Cart@b8b1a1d]
-2025-01-04 18:49:34 - Completed 200 OK
-2025-01-04 18:49:53 - GET "/cart/list/1152", parameters={}
-2025-01-04 18:49:53 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 18:49:53 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:49:53 - Writing [[com.example.ecommercemanagement.model.Cart@63f2d16f]]
-2025-01-04 18:49:53 - Completed 200 OK
-2025-01-04 18:50:13 - DELETE "/cart/remove?cartItemId=1", parameters={masked}
-2025-01-04 18:50:13 - Mapped to com.example.ecommercemanagement.controller.CartController#removeFromCart(Long)
-2025-01-04 18:50:13 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:50:13 - Writing [com.example.ecommercemanagement.model.Cart@3f9effbd]
-2025-01-04 18:50:13 - Completed 200 OK
-2025-01-04 18:50:17 - GET "/cart/list/1152", parameters={}
-2025-01-04 18:50:17 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
-2025-01-04 18:50:17 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2025-01-04 18:50:17 - Writing [[com.example.ecommercemanagement.model.Cart@530514ce]]
-2025-01-04 18:50:17 - Completed 200 OK
+2025-01-20 22:20:04 - "ERROR" dispatch for POST "/error", parameters={}
+2025-01-20 22:20:04 - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-01-20 22:20:04 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-20 22:20:04 - Writing [{timestamp=Mon Jan 20 22:20:04 EST 2025, status=500, error=Internal Server Error, path=/products-che (truncated)...]
+2025-01-20 22:20:04 - Exiting from "ERROR" dispatch, status 500
+2025-01-20 22:22:31 - POST "/products-checkout/checkout", parameters={}
+2025-01-20 22:22:31 - Mapped to com.example.ecommercemanagement.controller.ProductCheckoutController#checkoutProducts(CartItem)
+2025-01-20 22:22:31 - Read "application/json;charset=UTF-8" to [com.example.ecommercemanagement.model.CartItem@672378c2]
+2025-01-20 22:22:32 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-20 22:22:32 - Writing [StripeResponse(status=cs_test_a1aziSSpGb0ZJ1x0MzYLHgRBEvb9pAkr8zMRpRpofY8u1XUVuY2wTaV2Ap, message=ht (truncated)...]
+2025-01-20 22:22:32 - Completed 200 OK
+2025-01-20 22:30:29 - POST "/wishlist/add/1152?productId=4952&quantity=2", parameters={masked}
+2025-01-20 22:30:29 - Mapped to com.example.ecommercemanagement.controller.WishListController#addToWishList(Long, int, int)
+2025-01-20 22:30:29 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-20 22:30:29 - Writing [WishList(id=502, user=com.example.ecommercemanagement.model.ApplicationUser@2a6860c3, wishListItems= (truncated)...]
+2025-01-20 22:30:29 - Completed 201 CREATED
+2025-01-20 22:31:15 - GET "/wishlist/list/1152", parameters={}
+2025-01-20 22:31:15 - Mapped to com.example.ecommercemanagement.controller.WishListController#list(int)
+2025-01-20 22:31:15 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-20 22:31:15 - Writing [[WishList(id=502, user=com.example.ecommercemanagement.model.ApplicationUser@1429c3cf, wishListItems (truncated)...]
+2025-01-20 22:31:15 - Completed 200 OK
+2025-01-20 22:31:37 - GET "/cart/list/1152", parameters={}
+2025-01-20 22:31:37 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
+2025-01-20 22:31:37 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-20 22:31:37 - Writing [[com.example.ecommercemanagement.model.Cart@56c7d317]]
+2025-01-20 22:31:37 - Completed 200 OK
+2025-01-20 22:32:30 - DELETE "/cart/remove?cartItemId=152", parameters={masked}
+2025-01-20 22:32:30 - Mapped to com.example.ecommercemanagement.controller.CartController#removeFromCart(Long)
+2025-01-20 22:32:30 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-20 22:32:30 - Writing [com.example.ecommercemanagement.model.Cart@7ab40415]
+2025-01-20 22:32:30 - Completed 200 OK
+2025-01-20 22:32:39 - GET "/wishlist/list/1152", parameters={}
+2025-01-20 22:32:39 - Mapped to com.example.ecommercemanagement.controller.WishListController#list(int)
+2025-01-20 22:32:39 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-20 22:32:39 - Writing [[WishList(id=502, user=com.example.ecommercemanagement.model.ApplicationUser@146e5f44, wishListItems (truncated)...]
+2025-01-20 22:32:39 - Completed 200 OK
+2025-01-20 22:32:46 - GET "/cart/list/1152", parameters={}
+2025-01-20 22:32:46 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
+2025-01-20 22:32:46 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-20 22:32:46 - Writing [[com.example.ecommercemanagement.model.Cart@2018c670]]
+2025-01-20 22:32:46 - Completed 200 OK
+2025-01-20 22:32:53 - POST "/wishlist/moveToCart/1152", parameters={}
+2025-01-20 22:32:53 - Mapped to com.example.ecommercemanagement.controller.WishListController#addToWishListToCart(int)
+2025-01-20 22:32:53 - Entering addToCart with ProductId: 4952, Quantity: 2, UserId: 1152
+2025-01-20 22:32:53 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-20 22:32:53 - Writing [WishList(id=502, user=com.example.ecommercemanagement.model.ApplicationUser@7cf1bde3, wishListItems= (truncated)...]
+2025-01-20 22:32:53 - Completed 201 CREATED
+2025-01-20 22:33:05 - GET "/cart/list/1152", parameters={}
+2025-01-20 22:33:05 - Mapped to com.example.ecommercemanagement.controller.CartController#list(int)
+2025-01-20 22:33:05 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-01-20 22:33:05 - Writing [[com.example.ecommercemanagement.model.Cart@46b0fc4a]]
+2025-01-20 22:33:05 - Completed 200 OK

@@ -39,4 +39,19 @@ public class ProductService {
 
     }
 
+    public long count() {
+        return productRepository.count();
+    }
+
+    public void reduceStock(Long productId, int quantity){
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new RuntimeException("Product not found with ID: " + productId));
+
+        if (product.getStock() < quantity){
+            throw new RuntimeException("Insufficient stock for product:" + product.getTitle());
+        }
+        product.setStock(product.getStock() - quantity);
+        productRepository.save(product);
+    }
+
 }

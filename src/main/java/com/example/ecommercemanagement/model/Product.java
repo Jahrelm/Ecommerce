@@ -24,11 +24,26 @@ public class Product {
     private boolean campaignProduct;
     private Integer campaignProductAvailable;
     private Integer campaignProductSale;
+    private int stock;
+    private String currency;
     private String productType;
 
 
 
     public Product() {
+    }
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public void setCurrency(String currency){
+        this.currency = currency;
+    }
+    public String getCurrency(){
+        return currency;
+    }
+    public Integer getStock(){
+        return stock;
     }
 
     public Long getId() {

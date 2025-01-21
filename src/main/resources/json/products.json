@@ -10,6 +10,8 @@
     "campaignProduct": false,
     "campaignProductAvailable": null,
     "campaignProductSale": null,
+    "stock": 50,
+    "currency":"JMD",
     "productType": null
   },
   {
@@ -23,6 +25,8 @@
     "campaignProduct": true,
     "campaignProductAvailable": 20,
     "campaignProductSale": 10,
+    "stock": 40,
+    "currency":"JMD",
     "productType": null
   },
   {
@@ -36,6 +40,8 @@
     "campaignProduct": false,
     "campaignProductAvailable": null,
     "campaignProductSale": null,
+    "stock": 30,
+    "currency":"JMD",
     "productType": "Popular"
   },
   {
@@ -49,6 +55,8 @@
     "campaignProduct": true,
     "campaignProductAvailable": 48,
     "campaignProductSale": 12,
+    "stock": 20,
+    "currency":"JMD",
     "productType": null
   },
   {
@@ -62,6 +70,8 @@
     "campaignProduct": true,
     "campaignProductAvailable": 12,
     "campaignProductSale": 8,
+    "stock": 25,
+    "currency": "JMD",
     "productType": null
   },
   {
@@ -75,6 +85,8 @@
     "campaignProduct": false,
     "campaignProductAvailable": null,
     "campaignProductSale": null,
+    "stock": 35,
+    "currency": "JMD",
     "productType": null
   },
   {
@@ -88,6 +100,8 @@
     "campaignProduct": false,
     "campaignProductAvailable": null,
     "campaignProductSale": null,
+    "stock": 40,
+    "currency": "JMD",
     "productType": "New"
   },
   {
@@ -101,6 +115,8 @@
     "campaignProduct": true,
     "campaignProductAvailable": 19,
     "campaignProductSale": 10,
+    "stock": 45,
+    "currency": "JMD",
     "productType": null
   },
   {
@@ -114,6 +130,8 @@
     "campaignProduct": false,
     "campaignProductAvailable": null,
     "campaignProductSale": null,
+    "stock": 24,
+    "currency": "JMD",
     "productType": null
   },
   {
@@ -127,6 +145,8 @@
     "campaignProduct": true,
     "campaignProductAvailable": 19,
     "campaignProductSale": 10,
+    "stock": 24,
+    "currency": "JMD",
     "productType": null
   },
   {
@@ -140,6 +160,8 @@
     "campaignProduct": false,
     "campaignProductAvailable": null,
     "campaignProductSale": null,
+    "stock": 24,
+    "currency": "JMD",
     "productType": "Popular"
   },
   {
@@ -153,6 +175,8 @@
     "campaignProduct": true,
     "campaignProductAvailable": 25,
     "campaignProductSale": 10,
+    "stock": 24,
+    "currency": "JMD",
     "productType": null
   },
   {
@@ -166,6 +190,8 @@
     "campaignProduct": true,
     "campaignProductAvailable": 16,
     "campaignProductSale": 9,
+    "stock": 24,
+    "currency": "JMD",
     "productType": null
   },
   {
@@ -179,6 +205,8 @@
     "campaignProduct": false,
     "campaignProductAvailable": null,
     "campaignProductSale": null,
+    "stock": 24,
+    "currency": "JMD",
     "productType": null
   },
   {
@@ -192,6 +220,8 @@
     "campaignProduct": false,
     "campaignProductAvailable": null,
     "campaignProductSale": null,
+    "stock": 24,
+    "currency": "JMD",
     "productType": null
   },
   {
@@ -205,6 +235,8 @@
     "campaignProduct": false,
     "campaignProductAvailable": null,
     "campaignProductSale": null,
+    "stock": 24,
+    "currency": "JMD",
     "productType": "Popular"
   },
   {
@@ -218,6 +250,8 @@
     "campaignProduct": false,
     "campaignProductAvailable": null,
     "campaignProductSale": null,
+    "stock": 24,
+    "currency": "JMD",
     "productType": "New"
   },
   {
@@ -231,6 +265,8 @@
     "campaignProduct": false,
     "campaignProductAvailable": null,
     "campaignProductSale": null,
+    "stock": 24,
+    "currency": "JMD",
     "productType": "Popular"
   },
   {
@@ -244,6 +280,8 @@
     "campaignProduct": true,
     "campaignProductAvailable": 10,
     "campaignProductSale": 8,
+    "stock": 24,
+    "currency": "JMD",
     "productType": null
   },
   {
@@ -257,6 +295,8 @@
     "campaignProduct": true,
     "campaignProductAvailable": 18,
     "campaignProductSale": 10,
+    "stock": 24,
+    "currency": "JMD",
     "productType": null
   }
 ]
