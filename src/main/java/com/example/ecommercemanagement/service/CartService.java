@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -66,8 +67,11 @@ public class CartService {
         Cart cart = cartRepository.findByUser(user).orElseGet(() -> {
             Cart newCart = new Cart();
             newCart.setUser(user);
+            newCart.setTotalCost(0.0);
+            newCart.setCartItems(new ArrayList<>());
             return cartRepository.save(newCart);
         });
+
 
         Optional<CartItem> cartItemOptional = cart.getCartItems().stream()
                 .filter(item -> item.getProduct().getProductId().equals(productId))
@@ -86,7 +90,10 @@ public class CartService {
         }
 
         cartItem.calculateSubTotal();
-        cart.setTotalCost(cart.getCartItems().stream().mapToDouble(CartItem::getSubTotal).sum());
+        double newTotalCost = cart.getCartItems().stream()
+                .mapToDouble(CartItem::getSubTotal)
+                .sum();
+        cart.setTotalCost(newTotalCost);
 
         return cartRepository.save(cart);
     }

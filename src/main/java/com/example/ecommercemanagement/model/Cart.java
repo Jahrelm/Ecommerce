@@ -22,12 +22,14 @@ public class Cart {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<CartItem> cartItems = new ArrayList<>();
+    private List<CartItem> cartItems;
 
+    @Column(name = "cart_cost", nullable = false)
     private double totalCost;
 
     public Cart() {
         this.cartItems = new ArrayList<>();
+        this.totalCost = 0.0;
     }
 
     public Long getId() {
@@ -59,6 +61,6 @@ public class Cart {
     }
 
     public void setTotalCost(double totalCost) {
-        this.totalCost = totalCost;
+        this.totalCost = totalCost >= 0 ? totalCost : 0.0;
     }
 }
